@@ -1,0 +1,6 @@
+# Cannot set more than 5 breakpoints/watchpoints for ARM targets
+
+Internally a breakpoint/watchpoint planted by user is treated as Hardware breakpoints in System Debugger. For ARM there is a limitation of 6 Hardware breakpoints. Out of 6, one breakpoint is used for the single stepping, other breakpoint is used for stopping at main\(\). So users are left with four breakpoints. Software breakpoints \(No limitation on number of breakpoints\) support will be added in next release.
+
+**Parent topic:** [Frequently Asked Questions \(FAQs\)](../SDK_concepts/sdk_debugging_faq.html)
+

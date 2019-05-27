@@ -1,0 +1,19 @@
+# Software Profiling
+
+Profiling is a method by which the software execution time of each routine is determined. You can use this information to determine critical pieces of code and optimal code placement in a design. Routines that are frequently called are best suited for placement in fast memories, such as cache memory. You can also use profiling information to determine whether a piece of code can be placed in hardware, thereby improving overall performance.
+
+Xilinx SDK supports [TCF Profiling](../SDK_tasks/sdk_t_tcf_profiling_with_tcf_debugger.html) and [gprof Profiling](../SDK_tasks/task_profilingtheapplication.html). These two ways of profiling differ significantly from each other. For gprof based profiling the hardware system should have a timer interrupt for generating periodic sampling interrupts.
+
+**Note:** gprof is currently supported only for Cortex A9 & Microblaze processors.
+
+-   **[TCF Profiling](../SDK_tasks/sdk_t_tcf_profiling_with_tcf_debugger.html)**  
+
+-   **[gprof Profiling](../SDK_tasks/task_profilingtheapplication.html)**  
+
+-   **[Profiling Linux Applications with System Debugger](../SDK_tasks/sdk_profiling_linux_apps_with_sysdbg.html)**  
+
+-   **[Non-Intrusive Profiling for MicroBlaze Processors](../SDK_concepts/non-intrusive-profiling.html)**  
+
+-   **[FreeRTOS Analysis using STM](../SDK_tasks/sdk_freertos_analysis.html)**  
+
+

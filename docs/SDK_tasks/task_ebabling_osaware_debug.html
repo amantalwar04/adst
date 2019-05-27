@@ -1,0 +1,35 @@
+# Enabling OS Aware Debug
+
+This section describes setting up OS aware debug for a Zynq board running Linux from SD card, using the SDK IDE. It is assumed that users are aware of setting up a Jtag connection to the board, building Linux kernel and booting it from SD card. For details on how to set up the kernel debug, refer [Attach and Debug using Xilinx System Debugger](sdk_t_tcf_attach_debug_linux_kernel_tcf.html).
+
+1.   Compile the kernel source using the following configuration options: 
+
+    ```
+    CONFIG_DEBUG_KERNEL=y
+    CONFIG_DEBUG_INFO=y
+    ```
+
+2.   Launch SDK. 
+3.   Click **Window \> Open Perspective \> Debug**. 
+4.   Click **Run \> Debug Configurations**. 
+5.   In the Debug Configurations dialog box, select **Xilinx C/C++ application**and click the **New** button \(![](../images/new_icon.png)\). 
+6.   Click **Debug** 
+7.   Debugging begins, with the processors in the running state. 
+8.   Select the **Enable Linux OS Awareness** option from the **Debug** view in the processor context. 
+
+    ![](../images/enable_linux_os_awareness.png)
+
+9.   You can also perform the following actions from the menu that appears. 
+    -   **Refresh OSA Processes**: Select this option to refresh the list of running processes.
+    -   **Auto refresh on exec**: When selected, all the running processes are refreshed and seen in the **Debug** view. When not selected, new processes are not visible in the debug view.
+    -   **Auto refresh on suspend**: When selected, all the processes will be re-synced whenever the processor suspends. When not selected, only the current process is re-synced.
+    -   **Linux OSA File Selection**: Select this option to change the symbol file.
+10.  Alternatively, OS aware debugging can also be enabled using the -osa command in the Xilinx System Debugger \(XSDB\) command-line console. 
+
+    ```
+    osa -file <symbol-file> -fast-step -fast-exec
+    ```
+
+
+**Parent topic:** [OS Aware Debugging](../SDK_concepts/concept_osawaredebug.html)
+

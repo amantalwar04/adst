@@ -1,0 +1,15 @@
+# Debugging a Loadable Kernel Module
+
+To debug a kernel module, set path mapping to map the module name to symbol file of the module. To see loaded modules, select **Kernel** in the **Debug** view, and look at the **Modules** view. Kernel modules are listed by name and not by the file path.
+
+To debug a kernel module:
+
+1.   Select a project in the **Project Explorer** view. 
+2.   Select **Run** \> **Debug Configurations** The **Debug Configurations** window appears.
+3.   Click the **Path Map** tab to set the path mappings for the selected debug configuration. 
+4.   Click **Add** to insert the kernel module. 
+5.   Insert a function or line breakpoint and run the core. As soon as the breakpoint is hit, the debug view is updated with all the information. 
+6.   Similar to any other process or thread level debugging, you can insert breakpoints, step in, step out, watch variables, stack trace or perform other source level debugging tasks. 
+
+**Parent topic:** [OS Aware Debugging](../SDK_concepts/concept_osawaredebug.html)
+

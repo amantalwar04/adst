@@ -1,0 +1,63 @@
+# Using a Remote Host with System Debugger
+
+1.   Setting Up the Remote System Environment 
+    1.  Running hw\_server with non-default port \(for example: 3122\) enables remote connections. Use the following command to launch hw\_server on port 3122: 
+
+        ```
+            hw_server -s TCP::3122
+        ```
+
+    2.  Make sure your board is correctly connected.
+    3.  In a cmd window of the host machine, check the IP Address: ![](../images/remote_sys_ip.png)
+
+
+2.   Setting Up the Local System for Remote Debug 
+    1.  Launch SDK.
+    2.  Select the application to debug remotely.
+    3.  Select **Run \> Debug Configurations**.
+    4.   Create a new system debugger configuration. 
+    5.  In the Target Setup tab, click **New** to create a new target connection. ![](../images/sdk_t_tcf_remote_debug-1.png)
+
+ 
+    6.  In the New Target Connection dialog box, add the required details for the remote host that is connected to the target.
+    7.  **Target Name:** Type a name for the target.
+    8.  **Host:** IP address or name of the host machine.
+    9.  **Port:** Port on which the hardware server was launched, such as 3121. ![](../images/sdk_t_tcf_remote_debug-2.png)
+
+
+    10.  Select **Use Symbol Server** to ensure that the source code view is available, during debugging the application remotely. Symbol server acts as a mediator between hardware server and SDK. 
+    11. Click **OK.**
+    12. Now you can see that there are two available connections. In this case, **remote\_zc702\_1** is the remote connection. ![](../images/sdk_t_tcf_remote_debug-3.png)
+
+ 
+    13. Select or add the remaining debug configuration details and click **Debug.** ![](../images/sdk_t_tcf_remote_debug-4.png)
+
+
+
+**Parent topic:** [Working with XSDB](../SDK_concepts/concept_Xilinxsystemdebugger.html)
+
+**Related information**  
+
+
+[Recommended Debugger Usage](../SDK_tasks/sdk_t_recommend_debug_use.html)
+
+[Launch Configurations](../SDK_concepts/sdk_c_debug_run_configuration.html)
+
+[Target Connections](../SDK_tasks/sdk_t_target_connections.html)
+
+[System Debugger Supported Design Flows](../SDK_tasks/sdk_t_tcf_supported_design_flows.html)
+
+[Multi-Processor Debugging with System Debugger](../SDK_tasks/sdk_t_tcf_multiproc_debugging.html)
+
+[Viewing Memory Contents](../SDK_concepts/concept_viewing_mem_contents.html)
+
+[Viewing IP Register Details](../SDK_concepts/concept_viewing_IP_register_details.html)
+
+[OS Aware Debugging](../SDK_concepts/concept_osawaredebug.html)
+
+[Xen Aware Debugging](../SDK_concepts/concept_xen-aware_debug.html)
+
+[Debugging Self-relocating Programs](../SDK_tasks/task_debugging_self_relocating_programs.html)
+
+[Multi-Cable and Multi-Device Support](../SDK_references/reference_multicable_multidevice.html)
+

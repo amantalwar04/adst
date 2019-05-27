@@ -1,0 +1,27 @@
+# Xilinx SDK Development Flow Overview
+
+The typical flow for using Xilinx® SDK to develop a software application for Vivado® embedded system design is as follows:
+
+1.  Invoke Xilinx SDK. When prompted, open an existing workspace, or create a new one.
+
+    **Note:** When creating a new workspace, use a Hardware Platform that was generated from Vivado® IP Integrator.
+
+2.  Develop your software application. Xilinx SDK provides documentation for software libraries and drivers that are part of the board support package.
+3.  SDK creates a default linker script for the application. Linker generation tools can be used to modify the memory map.
+4.  When you are ready to test your application on the hardware target, run/debug the application by creating the run/debug configuration. Also, if required, download the hardware bitstream to the FPGA device.
+
+You can design your hardware platform in parallel with software development. You can have Xilinx SDK update your hardware platform specification by pointing to a different version and have it modify your workspace for the new hardware platform.
+
+This product includes software developed by the Eclipse Project \([http://www.eclipse.org/](http://www.eclipse.org/)\).
+
+**Parent topic:** [Getting Started with Xilinx SDK](../sdk_getting_started/sdk_getting_started.html#)
+
+**Related information**  
+
+
+[System Requirements](../xsct/intro/xsct_system_requirements.html)
+
+[Key Concepts for Using the Xilinx SDK](../sdk_getting_started/sdk_key_concepts.html)
+
+[Xilinx SDK IDE Extensions](../SDK_concepts/concept_xilinx_sdk_ide_extn.html)
+

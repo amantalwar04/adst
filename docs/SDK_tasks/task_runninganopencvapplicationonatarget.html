@@ -1,0 +1,55 @@
+# Debugging an OpenCV Application
+
+To run an OpenCV application on a target:
+
+1.   Create Linux images enabling the Open CV and C++ libraries. 
+    1.   Create a PetaLinux project. 
+
+        ```
+        source /proj/petalinux/petalinux-v2016.3_daily_latest/petalinux-v2016.3-final/settings.csh
+        petalinux-create -t project -s /proj/petalinux/petalinux-v2016.3_bsps_latest/Xilinx-ZCU102-v2016.3-final.bsp
+        ```
+
+    2.   Use `petallinux-config -c rootfs` to enable Open CV and C++ libraries. 
+    3.   Select all libraries at **Filesystem Packages** \> **libs** \> **opencv**. 
+    4.   Select all libstdc++ libraries at **Filesystem Packages** \> **base** \> **gcc-runtime-xilinx**. 
+    5.   To debug from Xilinx SDK, enable tcf-agent at **Filesystem Packages** \> **base** \> **tcf-agent**. Alternatively, you can run the agent independently after boot. 
+    6.   Save the kernel configuration and use `petalinux-build` to build the project. 
+2.   Use the image to boot Linux in any of the convenient boot mode. 
+3.   After a successful boot, obtain the board IP address. If you see an error while booting, change the `CONFIG_SYS_BOOTM_LEN` parameter in the u-boot config file according to the size of the image For example, add `#define CONFIG_SYS_BOOTM_LEN 0x<imagesize>` in the `$PTLNX_PROJECT/subsystems/linux/configs/u-boot/platform-top.h` file. Build the PetaLinux project again and try booting with the new image.
+4.   Select **Linux TCF Agent** from the **Target Connections** view. 
+5.   Double-click **Linux Agent**. The Target Connection Details dialog box appears.
+6.   Specify the board IP address, obtained during the boot, in the **Target Connection Details** dialog box. 
+7.   Create a new folder /tmp/opencv\_lib in the Linux file system. 
+8.   Copy the Opencv libraries to the newly created /tmp/opencv\_lib folder in remote file system. 
+
+    **Note:** The OpenCV libraries are located in the \\<install\_location\>\\SDK\\<version\>\\data\\embeddedsw\\ThirdParty\\opencvfolder of your SDK installation. Where <install-location\> is the SDK installation file path and <version\> is the current version of the SDK.
+
+9.   Create a Linux OpenCV application. For more details, refer [Creating an OpenCV Template Application](task_creatingopencvtemplateapp.html). 
+10.  Build the application. 
+11.  Select **Run** \> **Debug Configurations**. The **Debug Configurations** dialog box appears.
+12.  Click on **Xilinx C/C++ application \(System debugger\)** to create a new debug configuration. 
+13.  On the **Target Setup** tab page, select **Linux Application Debug** from the **Debug Type** list.![](../images/debugging_openCV_app.png)
+
+ 
+14.  On the **Application** tab page, specify the local .elf file path and the remote .elf file path. 
+
+    **Note:** The remote .elf file path is /tmp/opencv.elf.
+
+    ![](../images/debug_openCV_apptab.png)
+
+15.  On the **Environment** tab page, click on the **New** button. The **New Environment Variable** dialog box appears.
+16.  Set /tmp/opencv\_libfile path to the OpenCV libraries in the LD\_LIBRARY\_PATH environment variable . 
+
+    ![](../images/Debug_openCV_envtab.png)
+
+17.  Click **OK** to create the environment variable and close the **New Environment Variable** dialog box. 
+18.  Click **Debug**. You will be able to debug the OpenCV application using the system debugger.
+
+**Parent topic:** [Using the OpenCV Template Application](../SDK_tasks/sdk_t_opencv_template.html)
+
+**Related information**  
+
+
+[Creating an OpenCV Template Application](../SDK_tasks/task_creatingopencvtemplateapp.html)
+

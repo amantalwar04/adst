@@ -1,0 +1,12 @@
+# SDK does not display correct menus, icons or perspective
+
+## Issue
+
+When SDK launches, it does not display the correct menus, the correct icons, or the C/C++ Perspective.
+
+## Solution
+
+SDK is probably reading settings from an outdated .eclipse folder or an outdated workspace. Try opening SDK with a fresh workspace. If that does not work, remove your $HOME/.eclipse folder. \(On NT, this is usually C:\\Documents and settings\\username\\.eclipse.\)
+
+**Parent topic:** [Known Issues](../SDK_references/sdk_knownissues.html)
+

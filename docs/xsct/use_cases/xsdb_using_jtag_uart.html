@@ -1,0 +1,64 @@
+# Using JTAG UART
+
+Xilinx® System Debugger Command-line Interface \(XSDB\) supports virtual UART through Jtag, which is useful when the physical Uart doesn't exist or is non-functional. To use Jtag UART, the SW application should be modified to redirect STDIO to the Jtag UART. Xilinx SDK provides a CoreSight driver to support redirecting of STDIO to virtual Uart, on ARM based designs. For MB designs, the uartlite driver can be used. To use the virtual Uart driver, open board support settings in Xilinx SDK and can change STDIN / STDOUT to coresight/mdm.
+
+XSDB supports virtual UART through two commands.
+
+-   jtagterminal - Start/Stop Jtag based hyper-terminal. This command opens a new terminal window for STDIO. The text input from this terminal will be sent to STDIN and any output from STDOUT will be displayed on this terminal.
+-   readjtaguart - Start/Stop reading from Jtag Uart. This command starts polling STDOUT for output and displays in on XSDB terminal or redirects it to a file.
+
+Below is an example XSCT session that demonstrates how to use a JTAG terminal for STDIO.
+
+```
+connect
+source ps7_init.tcl
+targets -set -filter {name =~"APU"}
+loadhw system.hdf
+stop
+ps7_init
+targets -set -nocase -filter {name =~ "ARM*#0"}
+rst –processor
+dow <app>.elf
+jtagterminal
+con
+jtagterminal -stop #after you are done  
+```
+
+Below is an example XSCT session that demonstrates how to use the XSCT console as STDOUT for JTAG UART.
+
+```
+connect
+source ps7_init.tcl
+targets -set -filter {name =~"APU"}
+loadhw system.hdf
+stop
+ps7_init
+targets -set -nocase -filter {name =~ "ARM*#0"}
+rst –processor
+dow <app>.elf
+readjtaguart
+con
+readjtaguart -stop #after you are done
+```
+
+Below is an example XSCT session that demonstrates how to redirect the STDOUT from JTAG UART to a file.
+
+```
+connect
+source ps7_init.tcl
+targets -set -filter {name =~"APU"}
+loadhw system.hdf
+stop
+ps7_init
+targets -set -nocase -filter {name =~ "ARM*#0"}
+rst –processor
+dow <app>.elf
+set fp [open uart.log w]
+readjtaguart -handle $fp
+con
+readjtaguart -stop #after you are done
+
+```
+
+**Parent topic:** [XSCT Use Cases](../../xsct/use_cases/xsct_use_cases.html)
+

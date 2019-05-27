@@ -1,0 +1,96 @@
+# locals
+
+Get or set the value of a local variable.
+
+## Syntax
+
+locals \[options\] \[variable-name \[variable-value\]\]
+
+Get or set the value of a variable specified by `<variable-name>`. When variable name and value are not specified, values of all the local variables are returned. Elements of a complex data types like a structure can be accessed through '.' operator. For example, var1.int\_type refers to int\_type element in var1 struct. Array elements can be accessed through their indices. For example, array1\[0\] refers to the element at index 0 in array1.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-defs|Return the variable definitions like address, type, size and RW flags.|
+|-dict \[expression\]|Return the result in Tcl dict format, with variable names as dict keys and variable values as dict values. For complex data like structures, names are in the form of parent.child.|
+
+## Returns
+
+The return value depends on the options used.
+
+`<none>`: Variable value\(s\)
+
+`-defs`: Variable definition\(s\)
+
+Nothing, when variable value is set. Error string, if variable value cannot be read or set.
+
+## Example\(s\)
+
+```
+locals Int_Loc
+```
+
+Return the value of the local variable Int\_Loc.
+
+```
+locals
+```
+
+Return the values of all the local variables in the current stack frame.
+
+```
+locals -defs
+```
+
+Return definitions of all the local variables in the current stack frame.
+
+```
+locals Int_Loc 23
+```
+
+Set the value of the local variable Int\_Loc to 23.
+
+```
+locals tmp_var.var1.int_type
+```
+
+Return the value of int\_type element in var1 struct, where var1 is a member of tmp\_var struct.
+
+```
+locals tmp_var.var1.array1[0]
+```
+
+Return the value of the element at index 0 in array array1. array1 is a member of var1 struct, which is in turn a member of tmp\_var struct.
+
+**Parent topic:** [Program Execution](../../xsct/running/reference_xsct_running.html)
+
+**Related information**  
+
+
+[state](../../xsct/running/reference_running_state.html)
+
+[stop](../../xsct/running/reference_running_stop.html)
+
+[con](../../xsct/running/reference_running_con.html)
+
+[stp](../../xsct/running/reference_running_stp.html)
+
+[nxt](../../xsct/running/reference_running_nxt.html)
+
+[stpi](../../xsct/running/reference_running_stpi.html)
+
+[nxti](../../xsct/running/reference_running_nxti.html)
+
+[stpout](../../xsct/running/reference_running_stpout.html)
+
+[dis](../../xsct/running/reference_running_dis.html)
+
+[print](../../xsct/running/reference_running_print.html)
+
+[backtrace](../../xsct/running/reference_running_backtrace.html)
+
+[profile](../../xsct/running/reference_running_profile.html)
+
+[mbprofile](../../xsct/running/reference_running_mbprofile.html)
+

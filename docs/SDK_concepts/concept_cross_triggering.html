@@ -1,0 +1,35 @@
+# Cross-Triggering
+
+Cross Triggering is supported by the ECT module supplied by ARM®. ECT provides a mechanism for multiple subsystems in a SoC to interact with each other by exchanging debug triggers. ECT consists of two modules:
+
+-   Cross Trigger Interface \(CTI\) - CTI combines and maps the trigger requests, and broadcasts them to all other interfaces on the ECT as channel events. When the CTI receives a channel event, it maps this onto a trigger output. This enables subsystems to cross trigger with each other.
+-   Cross Trigger Matrix \(CTM\) - CTM controls the distribution of channel events. It provides Channel Interfaces for connection to either a CTI or CTM. This enables multiple ECTs to be connected to each other.
+
+The figure below shows how CTIs and CTM are used in a generic setup.
+
+![](../images/cross_triggering.png)
+
+CTM forms an event broadcasting network with multiple channels. A CTI listens to one or more channels for an event, maps a received event into a trigger, and sends the trigger to one or more CoreSight components connected to the CTI. A CTI also combines and maps the triggers from the connected CoreSight components and broadcasts them as events on one or more channels. Through its register interface, each CTI can be configured to listen to specific channels for events or broadcast triggers as events to specific channels.
+
+In the above example, there are four channels. The CTI at the top is configured to propagate the trigger event on Trigger Input 0 to Channel 0. Other CTIs can be configured to listen to this channel for events and broadcast the events through trigger outputs, to the debug components connected to these CTIs. CTIs also support channel gating such that selected channels can be turned off, without having to disable the channel to trigger I/O mapping.
+
+-   **[Enable Cross-Triggering](../SDK_tasks/task_enable_cross_triggering.html)**  
+
+-   **[Cross-Triggering in Zynq](../SDK_references/reference_cross-trigerring-zynq.html)**  
+
+-   **[Cross-Triggering in Zynq UltraScale+ MPSoC](../SDK_references/reference_cross-trigerring-zynqmp.html)**  
+
+
+**Parent topic:** [Xilinx SDK IDE Extensions](../SDK_concepts/concept_xilinx_sdk_ide_extn.html)
+
+**Related information**  
+
+
+[Xilinx Tools Menu](../SDK_references/sdk_u_m_tools.html)
+
+[Xilinx SDK Preferences](../SDK_references/sdk_u_xilinx_pref.html)
+
+[SDK Terminal](../SDK_concepts/concept_sdk_terminal.html)
+
+[Hierarchical-IP, Referenced-BD and Packaged-BD Support](../SDK_concepts/concept_hier_ip_support.html)
+

@@ -1,0 +1,55 @@
+# mdm\_drrd
+
+Read from MDM Debug Register.
+
+## Syntax
+
+mdm\_drrd \[options\] <cmd\> <bitlen\>
+
+Read a MDM Debug Register. cmd is 8-bit MDM command to access a Debug Register and bitlen is the register width. Returns hex register value.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-user <bscan number\>|Specify user bscan port number. Default is 2.|
+
+## Returns
+
+Register value, if successful. Error string, if BSCAN port is invalid.
+
+## Example\(s\)
+
+```
+mdm_drrd 0 32
+```
+
+Read XMDC ID Reg.
+
+**Parent topic:** [Miscellaneous](../../xsct/miscellaneous/reference_xsct_miscellaneous.html)
+
+**Related information**  
+
+
+[loadhw](../../xsct/miscellaneous/reference_miscellaneous_loadhw.html)
+
+[unloadhw](../../xsct/miscellaneous/reference_miscellaneous_unloadhw.html)
+
+[mdm\_drwr](../../xsct/miscellaneous/reference_miscellaneous_mdm_drwr.html)
+
+[mb\_drwr](../../xsct/miscellaneous/reference_miscellaneous_mb_drwr.html)
+
+[mb\_drrd](../../xsct/miscellaneous/reference_miscellaneous_mb_drrd.html)
+
+[configparams](../../xsct/miscellaneous/reference_miscellaneous_configparams.html)
+
+[version](../../xsct/miscellaneous/reference_miscellaneous_version.html)
+
+[xsdbserver start](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_start.html)
+
+[xsdbserver stop](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_stop.html)
+
+[xsdbserver disconnect](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_disconnect.html)
+
+[xsdbserver version](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_version.html)
+

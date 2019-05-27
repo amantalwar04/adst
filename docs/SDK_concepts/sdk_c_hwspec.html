@@ -1,0 +1,32 @@
+# Hardware Platform Specification
+
+The Hardware Platform Specification file captures all the information and files from a hardware design that is required for a software developer to write, debug, and deploy software applications for that hardware.
+
+Typically, a hardware designer who develops hardware using Vivado® creates the Hardware Platform Specification in a directory. The software developer then uses this information in the Xilinx Software Development Kit \(SDK\). The main components of this specification are:
+
+-   A Hardware Description in an XML format
+-   An FPGA Bitstream corresponding to the Hardware Description
+-   A Block RAM Memory Map \(BMM\) file corresponding to the Bitstream
+-   Zynq®-7000 AP SoC Initialization Files
+    -   ps7\_init.tcl file. This is the pre-initialization file that is to be sourced and executed before any application is downloaded onto the target. this tcl contains the clock, pll and ddr initialization code.
+    -   ps7\_init.c/.h files. These files are the C-equivalent files for the ps7\_init.tcl file. The ps7\_init.c and .h files are used during the FSBL application project creation.
+
+SDK uses the Hardware Description file to detect the processor\(s\) and memory-mapped peripherals present in the hardware.
+
+The FPGA bitstream programs an FPGA device with the hardware created by the hardware designer.
+
+The BMM file is a description of the internal memories used in the hardware description. It fills in the internal block RAM as necessary with a program or data.
+
+-   **[Creating a New Hardware Platform Specification](../SDK_tasks/sdk_u_new_hardware_platform_spec.html)**  
+
+-   **[Viewing a Hardware Platform Specification](../SDK_tasks/task_toviewahardwareplatformspecification.html)**  
+
+-   **[Importing a Hardware Platform Specification File](../SDK_tasks/task_importingahardwareplatformspecificationfile.html)**  
+
+-   **[Exporting a Hardware Specification in Vivado](../SDK_tasks/sdk_t_export_hwspec.html)**  
+
+-   **[Changing the Hardware Specification File](../SDK_tasks/sdk_t_change_hwspec.html)**  
+
+-   **[Monitoring Hardware Project Changes](../SDK_tasks/sdk_t_auto_sync.html)**  
+
+

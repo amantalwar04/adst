@@ -1,0 +1,23 @@
+# Enabling Xen Awareness
+
+This section describes setting up the Xen aware debug for Zynq® UltraScale+™ MPSoC devices running Linux from SD card, using the SDK IDE. It is assumed that the following preqequisites have been satisfied:
+
+-   You have PetaLinux Tools software platform ready for building a Linux system customized to your hardware platform.
+-   You have created a PetaLinux project from the ZCU102 reference BSP. The Xen related prebuilts are made available in <petalinux-install\>/pre-built/linux/images directory.
+
+For details on how to boot Xen and Dom-0, refer [UG1144 - PetaLinux Tools Documentation: Reference Guide](https://www.xilinx.com/cgi-bin/docs/rdoc?v=latest;d=ug1144-petalinux-tools-reference-guide.pdf).
+
+1.   Launch the Xilinx SDK IDE. 
+2.   Select **Window** \> **Open Perspective** \> **Debug**. 
+3.   Select **Run** \> **Debug Configurations**. 
+4.   In the **Debug Configurations** dialog box, select **Xilinx C/C++ application** and click the **New** button \(![](../images/new_icon.png)\). 
+5.   Click **Debug**. Debugging begins with the processors in the running state. 
+6.   Select the **Enable Linux OS Awareness** option from the **Debug** view in the processor context. 
+
+    ![](../images/enable_linux_os_awareness_xen.png)
+
+    Xen can be seen as a separate target in the debug view. Domain\#0 is the host OS \(Dom-0\) running on one VCPU \(VCPU\#0\) and Domain\#1 is the guest domain \(Dom-U\) running on one VCPU.
+
+
+**Parent topic:** [Xen Aware Debugging](../SDK_concepts/concept_xen-aware_debug.html)
+

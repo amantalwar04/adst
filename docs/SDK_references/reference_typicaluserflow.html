@@ -1,0 +1,22 @@
+# Typical User Flow
+
+SDK provides many different team provider plugins. These plugins integrate various source control tools into Eclipse. Plugins exist for many different tools and can be obtained from eclipse.org. Users may choose to use these plugins for better integration, or they may perform source control operations outside the Eclipse GUI.
+
+When starting from an existing project setup \(projects already exist in source control\), perform the following steps:
+
+1.  Obtain projects from version control into local hard disk
+2.  If the projects use a Vivado® repository for drivers or libraries, set that first in the workspace.
+3.  Import the projects into the workspace. Make sure to deselect the **Copy project sources** option provided in the import wizard. This will leave the projects in the same place where they were initially checked out from source control.
+4.  SDK will automatically build all the projects and produce the artifacts \(libraries and executables\).
+
+When starting from scratch, simply follow the regular steps to create SDK applications, but make sure that all the projects are placed in the same folder \(it can be inside or outside the workspace\). Then check in the files specified above into source control.
+
+**Parent topic:** [Using SDK with Revision Control Software](../SDK_references/sdk_u_cvs.html)
+
+**Related information**  
+
+
+[Organizing Projects in Directories](../SDK_references/reference_organizingprojectsindirectories.html)
+
+[Working with Git](../SDK_tasks/sdk_working_with_git.html)
+

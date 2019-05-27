@@ -1,0 +1,36 @@
+# Setting Up the Software for Profiling
+
+There are three important steps involved in setting up the software application for profiling:
+
+1.  Enable profiling in the Software Platform to include profiling libraries.
+
+    **Note:** Profiling is supported only for standalone software platforms.
+
+    1.  Add -pg to the extra compiler flags to build the BSP with profiling.
+
+        ![](../images/bsp_settings.png)
+
+    2.  Set enable\_sw\_intrusive\_profiling to true in BSP settings.
+
+        ![](../images/bsp_settings_configuration.png)
+
+2.  Enable profiling in application C/C++ build settings.
+
+    ![](../images/enable_profile_build_settings.png)
+
+
+**Parent topic:** [gprof Profiling](../SDK_tasks/task_profilingtheapplication.html)
+
+**Related information**  
+
+
+[Specifying Profiler Configuration](../SDK_tasks/sdk_t_run_profiler.html)
+
+[Setting Up the Hardware for Profiling](../SDK_concepts/concept_settinguphwforprofiling.html)
+
+[Setting up the Board Support Package](../SDK_tasks/task_settinguptheboardsupportpackage.html)
+
+[Setting Up the Software Application](../SDK_tasks/task_settingupthesoftwareapplication.html)
+
+[Viewing the Profiling Results](../SDK_concepts/concept_launchingprofilingview.html)
+

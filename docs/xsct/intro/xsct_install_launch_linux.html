@@ -1,0 +1,62 @@
+# Installing and Launching XSCT on Linux
+
+Xilinx Software Command-line Tool \(XSCT\) can be installed using the small self-extracting web install executable binary distribution file. The installer file bears the name Xilinx\_SDK\_<version\>\_Lin64.BIN, where <version\> indicates the Xilinx Software Development Kit \(Xilinx SDK\) version number.
+
+**Note:** The procedure for installing XSCT on Linux depends on which Linux distribution you are using. Ensure that the installation folder has the appropriate permissions. In addition, your project workspace needs to be set up in any folder that you can fully access.
+
+1.   To install XSCT, launch the terminal and change the permission of the self-extracting binary executable. 
+
+    ```
+    $ chmod +x Xilinx_SDK_<version>_Lin64.BIN
+    ```
+
+2.   Start the installation process or run the .BIN file. 
+
+    ```
+    ./Xilinx_SDK_<version>_Lin64.BIN
+    ```
+
+3.   The installer accepts your login credentials and allows you to select specific tool components. The client then automatically downloads only what you have selected and installs it on your local machine. 
+4.   In the **Select Edition to Install** window, select the **Xilinx Software Command-Line Tool \(XSCT\)** option to install XSCT as a seperate command-line tool only. Alternatively, you can also select the **Xilinx Software Development Kit \(XSDK\)** option to install XSCT as a part of the Xilinx SDK, an Eclipse-based integrated development environment. 
+5.   Unless you choose otherwise, XSCT is installed in the /opt/Xilinx directory. 
+6.   To launch XSCT on Linux, select **Applications** \> **Other** and then select **Xilinx Software Command Line Tool <version\>**. Where **<version\>** is the version number of the XSCT. 
+7.   You can also launch XSCT from the command line. 
+
+    ```
+    cd /opt/Xilinx/SDK/<version>/bin
+    ./xsct
+    ```
+
+8.   To view the available command-line options, issue the `help` command at the XSCT command prompt. 
+
+    ```
+    ****** Xilinx Software Commandline Tool (XSCT) 
+    
+        ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+    
+    xsct% help
+    Available Help Categories
+    
+    connections   - Target Connection Management
+    registers     - Target Registers
+    running       - Program Execution
+    memory        - Target Memory
+    download      - Target Download FPGA/BINARY
+    reset         - Target Reset
+    breakpoints   - Target Breakpoints/Watchpoints
+    streams       - Jtag UART
+    miscellaneous - Miscellaneous
+    jtag          - JTAG Access
+    sdk           - SDK Projects
+    petalinux     - Petalinux commands
+    hsi           - HSI commands
+    
+    Type "help" followed by above "category" for more details or
+    help" followed by the keyword "commands" to list all the commands
+    
+    xsct%
+    ```
+
+
+**Parent topic:** [Installing and Launching XSCT](../../xsct/intro/xsct_install_launch.html)
+

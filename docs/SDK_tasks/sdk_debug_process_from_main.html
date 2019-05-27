@@ -1,0 +1,17 @@
+# Debugging a Process from main\(\)
+
+To debug a new process from main\(\), a global breakpoint \(not against any particular target/context\) should be set, before starting the process. Symbol files are loaded based on path map settings, so there should be a corresponding entry for the new process before starting it.
+
+To debug a process from main\(\):
+
+1.   Select a project in the **Project Explorer** view. 
+2.   Select **Run** \> **Debug Configurations** The **Debug Configurations** window appears.
+3.   Click the **Path Map** tab to set the path mappings for the selected debug configuration. Path maps help enable source level debugging. The debugger uses Path Map setting to search and load symbols files for all executable files and shared libraries in the system. 
+4.   Set either the line breakpoint in the source file of the Linux application or function breakpoint at main\(\). Everytime a new process starts, the debugger checks symbols of the process and plants the breakpoint in the process if the source file or the main\(\) function is found in the symbols. 
+5.   Run the application from the terminal. 
+6.   As soon as the control hits a breakpoint, the **Debug** view is updated with the information of the process. 
+7.   The **Debug** view also shows the file, function and the line information of the breakpoint hit. A thread label includes the name of the CPU core, if the thread is currently running on a core. 
+8.   Source level debugging like stepping in, stepping out, watching variables, stack trace can be performed. Target side path for a binary file does not include mount point path. This is a known limitation. For example, when the process is located on the SD card, which is mounted at /mnt, the debugger shows the file as <filename\> and not as the expected /mnt/<filename\>.
+
+**Parent topic:** [OS Aware Debugging](../SDK_concepts/concept_osawaredebug.html)
+

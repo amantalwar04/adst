@@ -1,0 +1,33 @@
+# gdbremote connect
+
+Connect to GDB remote server.
+
+## Syntax
+
+gdbremote connect \[options\] server
+
+Connect to a GDB remote server, for example qemu. A special client named tcfgdbclient is used to connect to remote GDB server.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-architecture <name\>|Specify default architecture is remote server does not provide it.|
+
+## Returns
+
+Nothing, if the connection is successful. Error string, if the connection failed.
+
+**Parent topic:** [Target Connection Management](../../xsct/connections/reference_xsct_connections.html)
+
+**Related information**  
+
+
+[connect](../../xsct/connections/reference_connections_connect.html)
+
+[disconnect](../../xsct/connections/reference_connections_disconnect.html)
+
+[targets](../../xsct/connections/reference_connections_targets.html)
+
+[gdbremote disconnect](../../xsct/connections/reference_connections_gdbremote_disconnect.html)
+

@@ -1,0 +1,49 @@
+# Cross-Triggering in Zynq
+
+In Zynq®, ECT is configured with four broadcast channels, four CTIs, and a CTM. One CTI is connected to ETB/TPIU, one to FTM and one to each Cortex®-A9 core. The table below shows the trigger input and trigger output connections of each CTI.
+
+**Note:** The connections specified in the table below are hard-wired connections.
+
+|CTI Trigger Port|Signal|
+|----------------|------|
+|CTI connected to ETB, TPIU|
+|Trigger Input 2|ETB full|
+|Trigger Input 3|ETB acquisition complete|
+|Trigger Input 4|ITM trigger|
+|Trigger Output 0|ETB flush|
+|Trigger Output 1|ETB trigger|
+|Trigger Output 2|TPIU flush|
+|Trigger Output 3|TPIU trigger|
+|FTM CTI|
+|Trigger Input 0|FTM trigger|
+|Trigger Input 1|FTM trigger|
+|Trigger Input 2|FTM trigger|
+|Trigger Input 3|FTM trigger|
+|Trigger Output 0|FTM trigger|
+|Trigger Output 1|FTM trigger|
+|Trigger Output 2|FTM trigger|
+|Trigger Output 3|FTM trigger|
+|CPU0/1 CTIs|
+|Trigger Input 0|CPU DBGACK|
+|Trigger Input 1|CPU PMU IRQ|
+|Trigger Input 2|PTM EXT|
+|Trigger Input 3|PTM EXT|
+|Trigger Input 4|CPU COMMTX|
+|Trigger Input 5|CPU COMMTX|
+|Trigger Input 6|PTM TRIGGER|
+|Trigger Output 0|CPU debug request|
+|Trigger Output 1|PTM EXT|
+|Trigger Output 2|PTM EXT|
+|Trigger Output 3|PTM EXT|
+|Trigger Output 4|PTM EXT|
+|Trigger Output 7|CPU restart request|
+
+**Parent topic:** [Cross-Triggering](../SDK_concepts/concept_cross_triggering.html)
+
+**Related information**  
+
+
+[Enable Cross-Triggering](../SDK_tasks/task_enable_cross_triggering.html)
+
+[Cross-Triggering in Zynq UltraScale+ MPSoC](../SDK_references/reference_cross-trigerring-zynqmp.html)
+

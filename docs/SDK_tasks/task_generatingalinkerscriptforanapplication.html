@@ -1,0 +1,30 @@
+# Generating a Linker Script for an Application
+
+To generate a linker script for an application, do the following:
+
+1.   Select the application project in the **Project Navigator** view. 
+2.   Right-click **Generate Linker Script.**Alternately, you can click **Xilinx Tools \> Generate Linker Script.**The left side of the dialog box is read-only, except for Output Script name and project build settings in the **Modify project build settings as follows** field. This region shows all the available memory areas for the design. 
+3.  You have two choices of how to allocate memory: using the **Basic** tab or the **Advanced** tab. Both perform the same tasks; however, the **Basic** tab is less granular and treats all types of data as “data” and all types of instructions as “code.”. This is often sufficient to accomplish most tasks. Use the **Advanced** tab for precise allocation of software blocks into various types of memory.
+4.  Click **OK.** 
+
+    If there are errors, they must be corrected before you can build your application with the new linker script.
+
+    **Note:** If the linker script already exists, a message window appears, asking if you want to overwrite the file. Click **OK** to overwrite the file or **Cancel** to cancel the overwrite.
+
+    SDK automatically adds the linker script to the linker settings for a managed make project based on the options selected in **Modify project build settings as follows.**
+
+
+-   **[Basic Tab](../SDK_tasks/task_generatinglinkerscriptforapp_basictab.html)**  
+
+-   **[Advanced Tab](../SDK_tasks/task_generatinglinkerscriptforapp_advancedtab.html)**  
+
+
+**Parent topic:** [Linker Scripts](../SDK_concepts/concept_sdk_linkerscripts.html)
+
+**Related information**  
+
+
+[Manually Adding the Linker Script](../SDK_tasks/task_manuallyaddingthelinkerscript.html)
+
+[Modifying a Linker Script](../SDK_references/sdk_u_linker_script_mod.html)
+

@@ -1,0 +1,91 @@
+# Program Flash
+
+Program Flash is a SDK tool used to program the flash memories in the design. Various types of flash types are supported by SDK for programming.
+
+-   For Non Zynq devices – Parallel Flash \(BPI\) and Serial Flash \(SPI\) from various makes such as Micron, Spansion.
+-   For Zynq Devices – QSPI, NAND & NOR. QSPI can used in different configurations such as QSPI SINGLE, QSPI DUAL PARALLEL, QSPI DUAL STACKED.
+
+![](../images/sdk_u_program_flash-1.png)
+
+The table below lists all the options available on the Program Flash Memory dialog box:
+
+| Option
+
+ | Description
+
+ |
+|----------|---------------|
+| **Hardware Platform**
+
+ |Select the hardware platform you plan to use.|
+| **Connection**
+
+ | Select the connection to hardware server.
+
+ |
+| **Device**
+
+ |Select a device. **Auto Detect** selects the first device on the chain, by default.|
+|**Image File**| Select the file to write to the flash memory.
+
+ -   Zynq Devices:
+    -   Supported file formats for qspi flash types are BIN or MCS formats.
+    -   Supported file formats for nor & nand types are only BIN format.
+-   Non-Zynq Devices:
+    -   Supported types for flash parts in non-zynq devices are BIT, ELF, SREC, MCS, BIN.
+
+ |
+|**Offsest**| Specify the offset relative to the Flash Base Address, where the file should be programmed.
+
+ **Note:** Offset is not required for MCS files.
+
+ |
+|**FSBL File**|The FSBL `.elf` file is mandatory for the NOR flash types in Zynq devices. **Note:** Not required for non-zynq devices.
+
+|
+|**Flash Type**|Select a flash type.-   Zynq devices:
+    -   qspi\_single
+    -   qspi\_dual\_parallel
+    -   qspi\_dual\_stacked
+    -   nand\_8
+    -   nand\_16
+    -   nor
+    -   emmc
+
+**Note:** emmc flash type is applicable for Zynq® UltraScale+™ MPSoc devices only.
+
+-   Non-Zynq devices:
+    -   The flash type drop down list is populated based on the FPGA detected in the connection. If the connection to hardware server doesn’t exist, error - **Could not retrieve Flash Part information. Please check hardware server connection**, is displayed on the dialog box. Based on the device detected, the dialog populates all the flash parts supported for the device.
+
+**Note:** Appropriate part can be selected based on design. For Xilinx boards the part name can found from the respective boards’ user guide.
+
+|
+|**Convert ELF to Bootable SREC format and program**|The ELF file provided as the image file is converted into SREC format and programmed. This is a typical use case in non zynq devices. The SREC bootloader can be built and used to read the SREC converted ELF from flash, load it into RAM and boot.|
+|**Blank check after erase**|The blank check is performed to verify if the erase operation was properly done. The contents are read back and check if the region erased is blank.|
+|**Verify after flash**| The verify operation is cross check the flash programming operation. The flash contents are read back and cross checked against the programmed data.
+
+ |
+
+**Parent topic:** [Xilinx Tools Menu](../SDK_references/sdk_u_m_tools.html)
+
+**Related information**  
+
+
+[Generate Linker Script](../SDK_concepts/concept_generatelinkerscript.html)
+
+[Board Support Package Settings](../SDK_concepts/concept_bspsettings.html)
+
+[Repositories](../SDK_concepts/sdk_c_repos.html)
+
+[Program FPGA](../SDK_references/sdk_u_program_fpga.html)
+
+[Dump/Restore Data File](../SDK_concepts/concept_dump_restoredatefile.html)
+
+[Launch Shell](../SDK_concepts/concept_launchshell.html)
+
+[XSCT Console](../SDK_concepts/concept_xsct_console.html)
+
+[Configure QEMU Settings](../SDK_concepts/concept_configure_qemu_settings.html)
+
+[Create Boot Image](../SDK_concepts/concept_create_zynq_bootimage.html)
+

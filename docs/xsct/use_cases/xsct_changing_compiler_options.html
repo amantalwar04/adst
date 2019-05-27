@@ -1,0 +1,15 @@
+# Changing Compiler Options of an Application Project
+
+Below is an example XSCT session that demonstrates creating an empty application for Cortex® A53 processor, by adding the compiler option -std=c99.
+
+```
+setws /tmp/wrk/workspace
+createhw –name hw0 –hwspec /tmp/wrk/system.hdf
+createapp –name test –app {Empty Application} –proc psu_cortexa53_0 –hwproject hw0 –os standalone
+importsources -name test -path /tmp/wrk/testsources/test/
+configapp –app test -add compiler-misc {-std=c99}
+projects –build
+```
+
+**Parent topic:** [XSCT Use Cases](../../xsct/use_cases/xsct_use_cases.html)
+

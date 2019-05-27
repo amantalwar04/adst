@@ -1,0 +1,40 @@
+# Changing the Hardware Specification File
+
+When the hardware platform specification file is updated, SDK compares the information with the previous version of the file stored in the project.
+
+Any time the hardware specification file changes, SDK automatically makes changes in the workspace to adapt it to the new hardware design. It might provide recommendations on other changes you can make. Beyond these automatic and recommended changes, there might be other changes that are required at the application level to match the new hardware.
+
+For example, if you remove a peripheral from the design, the BSP will be automatically updated immediately following the hardware change detection. This means that the API for the removed peripheral will no longer be available to the application and any files or references to that removed peripheral will appear as an error.
+
+You can change the hardware specification file of the SDK hardware project using this procedure:
+
+1.  Select the Hardware Project in the **Project Explorer** view.
+2.  Right-click on the hardware project and select **Change Hardware Specification File.**
+3.  A dialog box opens to indicate the changes that will be made to the software projects associated with this hardware platform. Click **Yes** to continue.
+4.   Specify the source hardware specification file. 
+5.   Click **OK.** 
+
+    ![](../images/sdk_t_change_hwspec-1.png)
+
+    SDK does the following:
+
+    -   Updates the hardware project with the new hardware specification file, bitstream and BMM file.
+    -   If a processor sub-system was removed from the hardware design, SDK closes the software projects, any board support packages based on the previous hardware design, and any application projects, targeted to the removed processor subsystem.
+    -   Updates the board support package project with changes in the hardware processor sub-system. This include removal of drivers for removed peripherals and addition of default drivers for new peripherals.
+    -   Re-builds all the software projects related to the hardware project.
+
+**Parent topic:** [Hardware Platform Specification](../SDK_concepts/sdk_c_hwspec.html)
+
+**Related information**  
+
+
+[Creating a New Hardware Platform Specification](../SDK_tasks/sdk_u_new_hardware_platform_spec.html)
+
+[Viewing a Hardware Platform Specification](../SDK_tasks/task_toviewahardwareplatformspecification.html)
+
+[Importing a Hardware Platform Specification File](../SDK_tasks/task_importingahardwareplatformspecificationfile.html)
+
+[Exporting a Hardware Specification in Vivado](../SDK_tasks/sdk_t_export_hwspec.html)
+
+[Monitoring Hardware Project Changes](../SDK_tasks/sdk_t_auto_sync.html)
+

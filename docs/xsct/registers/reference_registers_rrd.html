@@ -1,0 +1,60 @@
+# rrd
+
+Read register for active target.
+
+## Syntax
+
+rrd \[options\] \[reg\]
+
+Read registers or register definitions. For a processor core target, processor core register can be read. For a target representing a group of processor cores, system registers or IOU registers can be read.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-defs|Read register definitions instead of values|
+|-no-bits|Does not show bit fields along with register values. By default, bit fields are shown, when available|
+
+## Returns
+
+Register names and values, or register definitions if successful. Error string, if the registers cannot be read or if an invalid register is specified.
+
+## Example\(s\)
+
+```
+rrd
+```
+
+Read top level registers or groups.
+
+```
+rrd r0
+```
+
+Read register r0.
+
+```
+rrd usr r8
+```
+
+Read register r8 in group usr.
+
+```
+rrd sys 5
+```
+
+ESR\_ELn registers are available in sys group of registers.
+
+```
+rrd sys 6
+```
+
+FAR\_ELn registers are available through sys 6.
+
+**Parent topic:** [Target Registers](../../xsct/registers/reference_xsct_registers.html)
+
+**Related information**  
+
+
+[rwr](../../xsct/registers/reference_registers_rwr.html)
+

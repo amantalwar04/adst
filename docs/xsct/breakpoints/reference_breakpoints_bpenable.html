@@ -1,0 +1,55 @@
+# bpenable
+
+Enable Breakpoints/Watchpoints.
+
+## Syntax
+
+bpenable <id-list\> | -all
+
+Enable the Breakpoints/Watchpoints specified by `<id-list>` or enable all the breakpoints when \\"-all\\" option is used.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-all|Enable all breakpoints.|
+
+## Returns
+
+Nothing, if the breakpoint is enabled successfully. Error string, if the breakpoint specified by `<id>` is not set.
+
+## Example\(s\)
+
+```
+bpenable 0
+```
+
+Enable Breakpoint 0.
+
+```
+bpenable 1 2
+```
+
+Enable Breakpoints 1 and 2.
+
+```
+bpenable -all
+```
+
+Enable all Breakpoints.
+
+**Parent topic:** [Target Breakpoints/Watchpoints](../../xsct/breakpoints/reference_xsct_breakpoints.html)
+
+**Related information**  
+
+
+[bpadd](../../xsct/breakpoints/reference_breakpoints_bpadd.html)
+
+[bpremove](../../xsct/breakpoints/reference_breakpoints_bpremove.html)
+
+[bpdisable](../../xsct/breakpoints/reference_breakpoints_bpdisable.html)
+
+[bplist](../../xsct/breakpoints/reference_breakpoints_bplist.html)
+
+[bpstatus](../../xsct/breakpoints/reference_breakpoints_bpstatus.html)
+

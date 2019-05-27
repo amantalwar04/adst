@@ -1,0 +1,15 @@
+# Renaming hardware platforms causes compilation errors
+
+## Issue
+
+When a hardware specification project is renamed, the dependent BSPs and applications fail to compile.
+
+## Solution
+
+Currently, SDK does not support renaming of hardware specification projects. In order to do so, you must manually change the following items:
+
+-   Change Project References in the BSP project to point to the new hardware project.
+-   Change the ELFCheck options in the application's build settings
+
+**Parent topic:** [Known Issues](../SDK_references/sdk_knownissues.html)
+

@@ -1,0 +1,45 @@
+# jtag claim
+
+Claim JTAG device.
+
+## Syntax
+
+jtag claim <mask\>
+
+Set claim mask for current JTAG device. DESCRIPTION This command will attept to set the claim mask for the current JTAG device. If any set bits in `<mask>` are already set in the
+
+claim mask then this command will return error "already claimed".
+
+The claim mask allow clients to negotiate control over JTAG devices. This is different from jtag lock in that 1\) it is specific to a device in the scan chain, and 2\) any clients can perform JTAG operations while the claim is in effect.
+
+## Note\(s\)
+
+-   Currently claim is used to disable the hw\_server debugger from controlling microprocessors on ARM DAP devices and FPGA devices containing Microblaze processors.
+
+## Returns
+
+Nothing.
+
+**Parent topic:** [JTAG Access](../../xsct/jtag/reference_xsct_jtag.html)
+
+**Related information**  
+
+
+[jtag targets](../../xsct/jtag/reference_jtag_jtag_targets.html)
+
+[jtag sequence](../../xsct/jtag/reference_jtag_jtag_sequence.html)
+
+[jtag device\_properties](../../xsct/jtag/reference_jtag_jtag_device_properties.html)
+
+[jtag lock](../../xsct/jtag/reference_jtag_jtag_lock.html)
+
+[jtag unlock](../../xsct/jtag/reference_jtag_jtag_unlock.html)
+
+[jtag disclaim](../../xsct/jtag/reference_jtag_jtag_disclaim.html)
+
+[jtag frequency](../../xsct/jtag/reference_jtag_jtag_frequency.html)
+
+[jtag skew](../../xsct/jtag/reference_jtag_jtag_skew.html)
+
+[jtag servers](../../xsct/jtag/reference_jtag_jtag_servers.html)
+

@@ -1,0 +1,55 @@
+# mb\_drwr
+
+Write to MicroBlaze Debug Register.
+
+## Syntax
+
+mb\_drwr \[options\] <cmd\> <data\> <bitlen\>
+
+Write to MicroBlaze Debug Register available on MDM. cmd is 8-bit MDM command to access a Debug Register. data is the register value and bitlen is the register width.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-user <bscan number\>|Specify user bscan port number. Default is 2.|
+
+## Returns
+
+Nothing, if successful. Error string, if BSCAN port is invalid.
+
+## Example\(s\)
+
+```
+mb_drwr 1 0x282 10
+```
+
+Write to MB Control Reg.
+
+**Parent topic:** [Miscellaneous](../../xsct/miscellaneous/reference_xsct_miscellaneous.html)
+
+**Related information**  
+
+
+[loadhw](../../xsct/miscellaneous/reference_miscellaneous_loadhw.html)
+
+[unloadhw](../../xsct/miscellaneous/reference_miscellaneous_unloadhw.html)
+
+[mdm\_drwr](../../xsct/miscellaneous/reference_miscellaneous_mdm_drwr.html)
+
+[mdm\_drrd](../../xsct/miscellaneous/reference_miscellaneous_mdm_drrd.html)
+
+[mb\_drrd](../../xsct/miscellaneous/reference_miscellaneous_mb_drrd.html)
+
+[configparams](../../xsct/miscellaneous/reference_miscellaneous_configparams.html)
+
+[version](../../xsct/miscellaneous/reference_miscellaneous_version.html)
+
+[xsdbserver start](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_start.html)
+
+[xsdbserver stop](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_stop.html)
+
+[xsdbserver disconnect](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_disconnect.html)
+
+[xsdbserver version](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_version.html)
+

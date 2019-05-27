@@ -1,0 +1,53 @@
+# loadhw
+
+Load a Vivado HW design.
+
+## Syntax
+
+loadhw \[options\]
+
+Load a Vivado HW design, and set the memory map for the current target. If the current target is a parent for a group of processors, memory map is set for all its child processors. If current target is a processor, memory map is set for all the child processors of it's parent. This command returns the HW design object.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-hw|HW design file.|
+|-list|Return a list of open designs for the targets.|
+|-mem-ranges \[list \{start1 end1\} \{start2 end2\}\]|List of memory ranges from which the memory map should be set. Memory map is not set for the addresses outside these ranges. If this option is not specified, then memory map is set for all the addresses in the hardware design.|
+
+## Returns
+
+Design object, if the HW design is loaded and memory map is set successfully. Error string, if the HW design cannot be opened.
+
+## Example\(s\)
+
+targets -filter \{name =~ "APU"\}; loadhw design.hdf Load the HW design named design.hdf and set memory map for all the child processors of APU target. targets -filter \{name =~ "xc7z045"\}; loadhw design.hdf Load the HW design named design.hdf and set memory map for all the child processors for which xc7z045 is the parent.
+
+**Parent topic:** [Miscellaneous](../../xsct/miscellaneous/reference_xsct_miscellaneous.html)
+
+**Related information**  
+
+
+[unloadhw](../../xsct/miscellaneous/reference_miscellaneous_unloadhw.html)
+
+[mdm\_drwr](../../xsct/miscellaneous/reference_miscellaneous_mdm_drwr.html)
+
+[mb\_drwr](../../xsct/miscellaneous/reference_miscellaneous_mb_drwr.html)
+
+[mdm\_drrd](../../xsct/miscellaneous/reference_miscellaneous_mdm_drrd.html)
+
+[mb\_drrd](../../xsct/miscellaneous/reference_miscellaneous_mb_drrd.html)
+
+[configparams](../../xsct/miscellaneous/reference_miscellaneous_configparams.html)
+
+[version](../../xsct/miscellaneous/reference_miscellaneous_version.html)
+
+[xsdbserver start](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_start.html)
+
+[xsdbserver stop](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_stop.html)
+
+[xsdbserver disconnect](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_disconnect.html)
+
+[xsdbserver version](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_version.html)
+

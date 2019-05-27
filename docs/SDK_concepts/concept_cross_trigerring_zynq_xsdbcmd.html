@@ -1,0 +1,29 @@
+# XSCT Cross-Triggering Commands
+
+The XSCT breakpoint add command \([bpadd](../xsct/breakpoints/reference_breakpoints_bpadd.html)\) has been enhanced to enable cross triggering between different components.
+
+For example, use the following command to set a cross trigger to stop Zynq® core 1 when core 0 stops.
+
+```
+bpadd -ct-input 0 -ct-output 8
+```
+
+For Zynq, `-ct-input 0` refers to CTI CPU0 TrigIn0 \(trigger input 0 of the CTI connected to CPU0\), which is connected to DBGACK \(asserted when the core is halted\). `-ct-output 8` refers to CTI CPU1 TrigOut0, which is connected to CPU debug request \(asserting this pin halts the core\). `hw_server` uses an available channel to set up a cross trigger path between these pins. When`core 0` is halted, the event is broadcasted to `core 1` over the selected channel, causing `core 1` to halt.
+
+Use the following command for Zynq® UltraScale+™MPSoC to halt the A53 core 1 when A53 core 0 stops.
+
+```
+bpadd -ct-input 16 -ct-output 24
+```
+
+**Parent topic:** [Cross-Triggering](../SDK_concepts/concept_cross_triggering.html)
+
+**Related information**  
+
+
+[FPGA to CPU\(s\) triggering](../SDK_concepts/concept_cross_trigerring_zynq_fpgatocputriggering.html)
+
+[PTM to CPU\(s\) triggering](../SDK_concepts/concept_cross_trigerring_zynq_ptmtocputriggering.html)
+
+[CPU to CPU triggering](../SDK_concepts/concept_cross_trigerring_zynq_cputocputriggering.html)
+

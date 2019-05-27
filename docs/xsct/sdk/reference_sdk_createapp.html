@@ -1,0 +1,120 @@
+# createapp
+
+Create an application project.
+
+## Syntax
+
+createapp \[OPTIONS\]
+
+Create an application project from a list of template applications.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-name <project-name\>|Project name that should be created.|
+|-app <template-application-name\>|Name of the template application. Default is "Hello World". Use 'repo -apps' command to get the list of all application templates.|
+|-proc <processor-name\>|Processor instance that should be used for creating application project.|
+|-hwproject <hw project name\>|Hardware project for which the application or bsp project should be created.|
+|-bsp <BSP project name\>|BSP project for which the application project should be created. If this option is not specified, a default bsp is created|
+|-os <OS name\>|OS type for the application project. Default type is standalone|
+|-lang <programming-language\>|`<programming-language>`, can be 'c' or 'c++'.|
+|-arch <arch-type\>|Processor architecture, `<arch-type>` can be 32 or 64 bits. This option is used to build the project with 32/64 bit toolchain. This is valid only for A53 processors, defaults to 32-bit for other processors.|
+
+## Returns
+
+Nothing, if the Application project is created successfully. Error string, if invalid options are used or if the project cannot be created.
+
+## Example\(s\)
+
+```
+createapp -name hello1 -bsp bsp1 -hwproject hw1 -proc ps7_cortexa9_0
+```
+
+Create a default application "Hello World" project with name 'hello1' for processor 'ps7\_cortexa9\_0'.
+
+```
+createapp -name fsbl1 -app {Zynq FSBL} -hwproject hw1 -proc ps7_cortexa9_0
+```
+
+Create a Zynq FSBL project with name 'fsbl1' and also creates a BSP 'fsbl1\_bsp' for processor 'ps7\_cortexa9\_0' and default OS 'standalone'.
+
+```
+createapp -name e1 -app {Empty Application} -hwproject hw2
+```
+
+-proc microblaze\_0 -lang c++ Create an empty C++ application project with name 'e1'.
+
+```
+createapp -name hello2 -app {Hello World} -hwproject hw1
+```
+
+-proc psu\_cortexa53\_0 -arch 32 Create a Hello World application project with name 'hello2' for processor 'psu\_cortexa53\_0' with 32-bit tool chain.
+
+**Parent topic:** [SDK Projects](../../xsct/sdk/reference_xsct_sdk.html)
+
+**Related information**  
+
+
+[openhw](../../xsct/sdk/reference_sdk_openhw.html)
+
+[closehw](../../xsct/sdk/reference_sdk_closehw.html)
+
+[openbsp](../../xsct/sdk/reference_sdk_openbsp.html)
+
+[closebsp](../../xsct/sdk/reference_sdk_closebsp.html)
+
+[updatemss](../../xsct/sdk/reference_sdk_updatemss.html)
+
+[getaddrmap](../../xsct/sdk/reference_sdk_getaddrmap.html)
+
+[getperipherals](../../xsct/sdk/reference_sdk_getperipherals.html)
+
+[repo](../../xsct/sdk/reference_sdk_repo.html)
+
+[configbsp](../../xsct/sdk/reference_sdk_configbsp.html)
+
+[setlib](../../xsct/sdk/reference_sdk_setlib.html)
+
+[removelib](../../xsct/sdk/reference_sdk_removelib.html)
+
+[getlibs](../../xsct/sdk/reference_sdk_getlibs.html)
+
+[setdriver](../../xsct/sdk/reference_sdk_setdriver.html)
+
+[getdrivers](../../xsct/sdk/reference_sdk_getdrivers.html)
+
+[setosversion](../../xsct/sdk/reference_sdk_setosversion.html)
+
+[getos](../../xsct/sdk/reference_sdk_getos.html)
+
+[regenbsp](../../xsct/sdk/reference_sdk_regenbsp.html)
+
+[setws](../../xsct/sdk/reference_sdk_setws.html)
+
+[getws](../../xsct/sdk/reference_sdk_getws.html)
+
+[createhw](../../xsct/sdk/reference_sdk_createhw.html)
+
+[updatehw](../../xsct/sdk/reference_sdk_updatehw.html)
+
+[changebsp](../../xsct/sdk/reference_sdk_changebsp.html)
+
+[createbsp](../../xsct/sdk/reference_sdk_createbsp.html)
+
+[createlib](../../xsct/sdk/reference_sdk_createlib.html)
+
+[projects](../../xsct/sdk/reference_sdk_projects.html)
+
+[importprojects](../../xsct/sdk/reference_sdk_importprojects.html)
+
+[importsources](../../xsct/sdk/reference_sdk_importsources.html)
+
+[getprojects](../../xsct/sdk/reference_sdk_getprojects.html)
+
+[deleteprojects](../../xsct/sdk/reference_sdk_deleteprojects.html)
+
+[configapp](../../xsct/sdk/reference_sdk_configapp.html)
+
+[toolchain](../../xsct/sdk/reference_sdk_toolchain.html)
+

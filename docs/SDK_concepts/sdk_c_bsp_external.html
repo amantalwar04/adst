@@ -1,0 +1,36 @@
+# Board Support Packages \(External Tools\)
+
+You can create a board support package \(BSP\) for application development within SDK, or for use in external tool flows. This topic describes BSPs used in external tool flows.
+
+For external tools, a board support package \(BSP\) is the collective term referring to all of the software components required to match a given operating system \(and its environment\) to a given hardware design \(board\). BSPs commonly contain low-level operating system and device driver code that is dependent on the hardware and upon which the rest of the operating system layers. In addition, a BSP might also contain other files containing directives, compilation parameters, and hardware parameters that are used to configure the operating system. Since a given Xilinx® hardware platform is configurable, fixed board support packages are not possible. Therefore, a custom board support package must be generated for each hardware design that you create.
+
+SDK can be used to create board support packages for third-party operating systems that are supported on the Xilinx processors. The board support package appears as a project in the SDK Navigator view. You can configure each BSP project in various ways and then run a BSP generation process. The BSP generation process typically ends with a collection of files generated in the workspace, which you must then take into the third-party environment to proceed with building the operating system and applications. The specifics of what files must be collected and how they must be used depends on the third-party operating system in question.
+
+For a comprehensive listing of all third-party offerings, refer to [http://www.xilinx.com/ise/embedded/epartners/listing.htm](http://www.xilinx.com/ise/embedded/epartners/listing.htm).
+
+You cannot link application projects created in SDK with BSP projects created for external tools. You must perform application development for the external tool BSP only in the development environment offered by the third-party vendor.
+
+-   **[Creating a Board Support Package \(External Tools\)](../SDK_tasks/sdk_t_create_bsp_external.html)**  
+
+-   **[Configuring a Board Support Package \(External Tools\)](../SDK_tasks/sdk_t_config_bsp_external.html)**  
+
+-   **[Generating a Board Support Package for External Tools](../SDK_tasks/sdk_t_build_bsp_external.html)**  
+
+
+**Parent topic:** [Board Support Packages \(SDK\)](../SDK_concepts/sdk_c_bsp_internal.html)
+
+**Related information**  
+
+
+[Creating a Board Support Package \(SDK\)](../SDK_tasks/sdk_t_create_bsp_internal.html)
+
+[Configuring a Board Support Package \(SDK\)](../SDK_tasks/sdk_t_config_bsp_internal.html)
+
+[Building a Board Support Package for SDK](../SDK_tasks/sdk_t_build_bsp_internal.html)
+
+[Supported Libraries](../SDK_concepts/concept_otherlibraries.html)
+
+[Viewing a Board Support Package](../SDK_tasks/sdk_t_view_bsp.html)
+
+[Re-Targeting A BSP for a New Hardware Platform](../SDK_tasks/sdk_t_retarget.html)
+

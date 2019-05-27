@@ -1,0 +1,56 @@
+# Performance Analysis
+
+Performance analysis in SDK provides functionality for viewing and analyzing different types of performance data. Its goal is to provide views, graphs, metrics, etc. to help extract useful information from the data, in a way that is more user-friendly and informative than huge text dumps.
+
+Performance analysis provides the following features:
+
+-   Support for viewing ARM data.
+-   Support for viewing APM data with PS and MDM as master.
+-   Support for viewing MicroBlaze data.
+-   Support for viewing and analyzing live data.
+-   Support for offline viewing of data.
+-   Support for zooming out/in of the data.
+-   Event filtering and searching.
+-   Import and export of trace packages.
+
+The Performance analysis feature in SDK supports data collection from AXI Performance Monitor \(APM\) Event Counters, ARM Performance Monitor Unit \(PMU\) from a Zynq®-7000 AP SoC Processing System, and MicroBlaze Performance Monitoring counters. For an example usage of performance monitoring on Zynq, refer [System Performance Modeling](sdk_c_spm_over_spm.html). For a MicroBlaze design, APM can be used in a similar way as SPM.
+
+To collect MicroBlaze performance data, the performance monitoring counters must be enabled in the Vivado Hardware design. For more information, refer [MicroBlaze Processor Reference Guide \(UG984\)](http://www.xilinx.com/cgi-bin/docs/rdoc?v=latest;d=ug984-vivado-microblaze-ref.pdf). SDK monitors the following events for MicroBlaze.
+
+-   Number of clock cycles
+-   Any valid instruction executed
+-   Read or write data request from/to data cache
+-   Read or write data cache hit
+-   Pipeline stalled
+-   Instruction cache latency for memory read
+
+The data is collected in SDK in real-time. The values from these counters are sampled every 10 milliseconds. These values are used to calculate metrics shown in the **Performance Counters** view.
+
+SDK monitors the following PMU events for each Cortex-A9 CPU:
+
+-   Data cache refill
+-   Data cache access
+-   Data stall
+-   Write stall
+-   Instruction rename
+-   Branch miss
+
+The following two Level-2 cache controller \(L2C-PL330\) counters are monitored:
+
+-   Number of cache hits
+-   Number of cache accesses
+
+The following APM counters for each HP and ACP port are monitored:
+
+-   Write Byte Count
+-   Read Byte Count
+-   Write Transaction Count
+-   Total Write Latency
+-   Read Transaction Count
+-   Total Read Latency
+
+-   **[Working with Performance Analysis Perspective](../SDK_concepts/concept_working_with_performance_analysis_perspective.html)**  
+
+-   **[System Performance Modeling](../SDK_concepts/sdk_c_spm_over_spm.html)**  
+
+

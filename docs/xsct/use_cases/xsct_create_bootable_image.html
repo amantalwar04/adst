@@ -1,0 +1,19 @@
+# Creating a Bootable Image and Program the Flash
+
+Below is an example XSCT session that demonstrates creating two applications \(FSBL and Hello World\). Further, create a bootable image using the applications along with bitstream and program the image on to the flash.
+
+**Note:** Assuming the board to be zc702. Hence -flash\_type qspi\_single is used as an option in program\_flash.
+
+```
+setws /tmp/wrk/workspace
+createhw –name hw0 –hwspec /tmp/wrk/system.hdf
+createapp -name fsbl -app {Zynq FSBL} -proc ps7_cortexa9_0 -hwproject hw0 -os standalone
+createapp -name hello -app {Hello World} -proc ps7_cortexa9_0 -hwproject hw0 -os standalone
+projects –build
+exec bootgen -arch zynq -image output.bif -w -o BOOT.bin
+exec program_flash -f /tmp/wrk/BOOT.bin -flash_type qspi_single -blank_check -verify -cable \
+type xilinx_tcf url tcp:localhost:3121
+```
+
+**Parent topic:** [XSCT Use Cases](../../xsct/use_cases/xsct_use_cases.html)
+

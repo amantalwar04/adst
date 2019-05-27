@@ -1,0 +1,90 @@
+# Creating a User Template Application
+
+Xilinx Software Development Kit \(SDK\) and XSCT now support creation of user defined application templates using the repository functionality. To create a standalone or Linux application template:
+
+1.   A great way to start creating an user defined application template is to look at an existing template for the directory structure and files that needs to be defined along with the source files. 
+    1.   Sample standalone OS application template files are available at <SDK installation directory\>\\data\\embeddedsw\\lib\\sw\_apps\\lwip\_echo\_server . 
+    2.   Sample Linux OS application template files are available at <SDK installation directory\>\\data\\embeddedsw\\lib\\sw\_apps\_linux\\linux\_hello\_world . 
+2.   Observe the folder name. Also note that the file names are same as application template names, excluding the file extensions. 
+3.   Decide on your application template name and OS. 
+4.   Create an application TCL file. The TCL file name should be same as the application template name. 
+5.   Add the following functions to the TCL file: 
+    1.   swapp\_get\_name: This function returns the application template name. The return value should be same as application template name. 
+
+        ```
+        proc swapp_get_name {} {
+            return "lwIP Echo Server";
+        }
+        ```
+
+    2.   swapp\_get\_description: This function returns the description of the application template in the SDK IDE. You can write the description to provide application details. 
+
+        ```
+        proc swapp_get_description {} {    
+        return "The lwIP Echo Server application provides a simple demonstration of 
+        how to use the light-weight IP stack (lwIP). This application sets up the board 
+        to use IP address 192.168.1.10, with MAC address 00:0a:35:00:01:02. The server listens 
+        for input at port 7 and simply echoes back whatever data is sent to that port."
+        }
+        ```
+
+    3.   swapp\_is\_supported\_sw: This functions checks for the required software libraries for the application project. For example, the lwip\_echo\_server application template requires the lwip library in the BSP. 
+
+        ![](../images/swapp_is_supported_sw.png)
+
+    4.   swapp\_is\_supported\_hw: This function checks if the application is supported for a particular design or not. For example, lwip is not supported for MicroBlaze. 
+
+        ![](../images/swapp_is_supported_hw.png)
+
+    5.   swapp\_get\_linker\_constraints: This function is used to generate the linker script. If this function returns lscript no then the linkerscript is copied from the application template. For example, the FSBL application does not generate a linker script. There exists a default linker script in the src folder that is used to create an application. 
+
+        ```
+        proc swapp_get_linker_constraints {} {    
+            # don't generate a linker script. fsbl has its own linker script
+            return "lscript no";
+        }
+        ```
+
+    6.   swapp\_get\_supported\_processors: This function checks the supported processors for the application template. For example, the linux\_hello\_world project is supports the ps7\_cortexa9, psu\_cortexa53, and microblaze processors. 
+
+        ```
+        proc swapp_get_supported_processors {} {
+            return "ps7_cortexa9 psu_cortexa53 microblaze";
+        }
+        ```
+
+    7.   proc swap\_get\_supported\_os: This function checks the OS supported by the application template. 
+
+        ```
+        proc swapp_get_supported_os {} {
+            return "linux";
+        }
+        ```
+
+6.   Create an application MSS file to provide specific driver libraries to the application template. The MSS file name should be similar to the application template name. 
+7.   Provide the OS and LIBRARY parameter details. 
+
+    ![](../images/application_mss_file.png)
+
+8.   Copy the newly created TCL and MSS files to the data folder. 
+9.   Create your source source files and save them in the src folder. Copy the lscript.ld file to the src folder, if required. 
+10.  Move the data and src folders to a newly created folder. For example: 
+    -   For standalone application template, create a folder sw\_apps and move the data and src folders to the newly created folder. SDK considers the applications created in the sw\_apps folder as standalone applications.
+    -   For Linux application templates, create a folder sw\_apps\_linux and move the data and src folders to the newly created folder. SDK considers the applications created in the sw\_apps\_linux folder as Linux applications.
+
+-   **[Accessing User Template Applications](../SDK_tasks/task_accessing_user_app_templates.html)**  
+
+
+**Parent topic:** [SDK Application Projects](../SDK_concepts/sdk_c_projects.html)
+
+**Related information**  
+
+
+[Creating a Standalone Application Project](../SDK_tasks/sdk_t_create_new_appln.html)
+
+[Creating a Linux Application Project](../SDK_tasks/sdk_t_create_new_linux_appln.html)
+
+[Zynq DRAM Diagnostics Test](../SDK_references/sdk_u_zynq_dram.html)
+
+[Using the OpenCV Template Application](../SDK_tasks/sdk_t_opencv_template.html)
+

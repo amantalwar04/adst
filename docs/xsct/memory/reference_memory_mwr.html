@@ -1,0 +1,106 @@
+# mwr
+
+Memory Write.
+
+## Syntax
+
+mwr \[options\] <address\> <values\> \[num\]
+
+Write `<num>` data values from list of `<values>` to active target memory address specified by `<address>`. If `<num>` is not specified, all the `<values>` from the list are written sequentially from the address specifed by `<address>` If `<num>` is greater than the size of the `<values>` list, the last word in the list is filled at the remaining address locations.
+
+mwr \[options\] -bin -file <file-name\> <address\> \[num\]
+
+Read `<num>` data values from a binary file and write to active target memory address specified by `<address>`. If `<num>` is not specified, all the data from the file is written sequentially from the address specifed by `<address>`.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-force|Overwrite access protection. By default accesses to reserved and invalid address ranges are blocked.|
+|-size <access-size\>|`<access-size>` can be one of the values below: b = Bytes accesses h = Half-word accesses w = Word accesses d = Double-word accesses Default access size is w. Address will be aligned to accesss-size before writing to memory, if '-unaligned-access' option is not used. If target does not support double-word access, the debugger uses 2 word accesses. If number of data values to be written is more than 1, then debugger selects appropriate access size. For example, 1. mwr -size b 0x0 \{0x0 0x13 0x45 0x56\} Debugger writes one word to the memory, combining 4 bytes. 2. mwr -size b 0x0 \{0x0 0x13 0x45\} Debugger writes one half-word and one byte to the memory, combining the 3 bytes. 3. mwr 0x0 \{0x0 0x13 0x45\} Debugger writes 3 words to the memory.|
+|-bin|Read binary data from a file and write it to target address space.|
+|-file <file-name\>|File from which binary data is read to write to target address space.|
+|-address-space <name\>|Access specified memory space instead default memory space of current target. For ARM DAP targets, address spaces DPR, APR and AP`<n>` can be used to access DP Registers, AP Registers and MEM-AP addresses, respectively. For backwards compatibility -arm-dap and -arm-ap options can be used as shorthand for "-address-space APR" and "-address-space AP`<n>`", respectively. The APR address range is 0x0 - 0xfffc, where the higher 8 bits select an AP and lower 8 bits are the register address for that AP.|
+|-unaligned-accesses|Memory address is not aligned to access size, before performing a write operation. Support for unaligned accesses is target architecture dependent. If this option is not specified, addresses are automatically aligned to access size.|
+
+## Note\(s\)
+
+-   Select a APU target to access ARM DAP and MEM-AP address space.
+
+## Returns
+
+Nothing, if successful. Error string, if the target memory cannot be written.
+
+## Example\(s\)
+
+```
+mwr 0x0 0x1234
+```
+
+Write 0x1234 to address 0x0.
+
+```
+mwr 0x0 {0x12 0x23 0x34 0x45}
+```
+
+Write 4 words from the list of values to address 0x0.
+
+```
+mwr 0x0 {0x12 0x23 0x34 0x45} 10
+```
+
+Write 4 words from the list of values to address 0x0 and fill the last word from the list at remaining 6 address locations.
+
+```
+mwr -size b 0x1 {0x1 0x2 0x3} 3
+```
+
+write 3 bytes from the list at address 0x1.
+
+```
+mwr -size h 0x2 {0x1234 0x5678} 2
+```
+
+write 2 half-words from the list at address 0x2.
+
+```
+mwr -bin -file mem.bin 0 100
+```
+
+Read 100 words from binary file mem.bin and write the data at target address 0x0.
+
+```
+mwr -arm-dap 0x100 0x80000042
+```
+
+Write 0x80000042 to APB-AP CSW on Zynq The higher 8 bits \(0x1\) select the APB-AP and lower 8 bits \(0x0\) is the address of CSW.
+
+```
+mwr -arm-dap 0x04 0xf8000120
+```
+
+Write 0xf8000120 to AHB-AP TAR on Zynq The higher 8 bits \(0x0\) select the AHB-AP and lower 8 bits \(0x4\) is the address of TAR.
+
+```
+mwr -arm-ap 1 0x80090088 0x03186003
+```
+
+Write 0x03186003 to address 0x80090088 on DAP APB-AP 0x80090088 corresponds to DBGDSCR register of Cortex-A9\#0, on Zynq AP 1 selects the APB-AP.
+
+```
+mwr -arm-ap 0 0xe000d000 0x80020001
+```
+
+Write 0x80020001 to address 0xe000d000 on DAP AHB-AP 0xe000d000 corresponds to QSPI device on Zynq AP 0 selects the AHB-AP.
+
+**Parent topic:** [Target Memory](../../xsct/memory/reference_xsct_memory.html)
+
+**Related information**  
+
+
+[mrd](../../xsct/memory/reference_memory_mrd.html)
+
+[osa](../../xsct/memory/reference_memory_osa.html)
+
+[memmap](../../xsct/memory/reference_memory_memmap.html)
+

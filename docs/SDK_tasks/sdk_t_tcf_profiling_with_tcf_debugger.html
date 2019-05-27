@@ -1,0 +1,34 @@
+# TCF Profiling
+
+TCF profiler supports profiling of both standalone and Linux applications. TCF profiling doesn’t require any additional compiler flags to be set while building the application. Profiling standalone applications over Jtag is based on sampling the Program Counter through debug interface. It doesn’t alter the program execution flow and is non-intrusive when stack trace is not enabled. When stack trace is enabled, program execution speed decreases as the debugger has to collect stack trace information.
+
+1.  Select the application you want to profile.
+2.  Select **Run \> Debug As \> Launch on Hardware \(System Debugger\).**
+3.  When the application stops at main, open the TCF profiler view by selecting **Window \> Show View \> Other \> Debug \> TCF Profiler.** ![](../images/sdk_t_tcf_profiling_with_tcf_debugger-1.png)
+
+
+4.   Click the ![](../images/sdk_t_tcf_profiling_with_tcf_debugger-2.png)button to start profiling. The **Profiler Configuration** dialog box appears.
+
+    ![](../images/sdk_t_tcf_profiling_with_tcf_debugger-3.png)
+
+5.   Select the **Aggregate Per Function** option, to group all the samples collected for different addresses in a single function together. When the option is disabled, the samples collected are shown as per the address. 
+6.   Select the **Enable stack tracing** option, to show the stack trace for each address in the sample data. To view the stack trace for an address, click on that address entry in the profiler view. 
+7.   Specify the **Max stack frames count** for the maximum number of frames that are shown in the stack trace view. 
+8.   Specify the **View update interval** for the time interval \(in milliseconds\) the TCF profiler view is updated with the new results. Please note that this is different from the interval at which the profile samples are collected. 
+9.  Resume your application. The profiler view will be updated with the data as shown the figure below ![](../images/sdk_t_tcf_profiling_with_tcf_debugger-4.png)
+
+
+
+**Parent topic:** [Software Profiling](../SDK_concepts/sdk_c_over_profile.html)
+
+**Related information**  
+
+
+[gprof Profiling](../SDK_tasks/task_profilingtheapplication.html)
+
+[Profiling Linux Applications with System Debugger](../SDK_tasks/sdk_profiling_linux_apps_with_sysdbg.html)
+
+[Non-Intrusive Profiling for MicroBlaze Processors](../SDK_concepts/non-intrusive-profiling.html)
+
+[FreeRTOS Analysis using STM](../SDK_tasks/sdk_freertos_analysis.html)
+

@@ -1,0 +1,57 @@
+# memmap
+
+Modify Memory Map.
+
+## Syntax
+
+memmap <options\>
+
+Add/remove a memory map entry for the active target.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-addr <memory-address\>|Address of the memory region that should be added/removed from the target's memory map.|
+|-size <memory-size\>|Size of the memory region.|
+|-flags <protection-flags\>|Protection flags for the memory region. `<protection-flags>` can be a bitwise OR of the values below: 0x1 = Read access is allowed 0x2 = Write access is allowed 0x4 = Instruction fetch access is allowed Default value of `<protection-flags>` is 0x3 \(Read/Write Access\).|
+|-list|List the memory regions added to the active target's memory map.|
+|-clear|Specify whether the memory region should be removed from the target's memory map.|
+|-relocate-section-map <addr\>|Relocate the address map of the program sections to `<addr>`. This option should be used when the code is self-relocating, so that the debugger can find the debug symbol info for the code. `<addr>` is the relative address, to which all the program sections are relocated.|
+|-osa|Enable OS awareness for the symbol file. Fast process start and fast stepping options are turned off by default. These options can be enabled using the osa command. See "help osa" for more details.|
+|-properties <dict\>|Specify advanced memory map properties.|
+|-meta-data <dict\>|Specify meta-data of advanced memory map properties.|
+
+## Note\(s\)
+
+-   Only the memory regions previously added through memmap command can be removed.
+
+## Returns
+
+Nothing, while setting the memory map, or list of memory maps when -list option is used.
+
+## Example\(s\)
+
+```
+memmap -addr 0xfc000000 -size 0x1000 -flags 3
+```
+
+Add the memory region 0xfc000000 - 0xfc000fff to target's memory map Read/Write accesses are allowed to this region.
+
+```
+memmap -addr 0xfc000000 -clear
+```
+
+Remove the previously added memory region at 0xfc000000 from target's memory map.
+
+**Parent topic:** [Target Memory](../../xsct/memory/reference_xsct_memory.html)
+
+**Related information**  
+
+
+[mrd](../../xsct/memory/reference_memory_mrd.html)
+
+[mwr](../../xsct/memory/reference_memory_mwr.html)
+
+[osa](../../xsct/memory/reference_memory_osa.html)
+

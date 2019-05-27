@@ -1,0 +1,68 @@
+# Attach and Debug using Xilinx System Debugger
+
+It is possible to debug the Linux kernel using the Xilinx® System Debugger. Follow the steps below to attach to the Linux kernel running on the target and to debug the source code.
+
+1.  Compile the kernel source using the following configuration options: 
+
+    ```
+    CONFIG_DEBUG_KERNEL=y
+    CONFIG_DEBUG_INFO=y
+    ```
+
+2.  Launch SDK.
+3.  Click **Window \> Open Perspective \> Debug.**
+4.  Click **Run \> Debug Configurations.**
+5.  In the Debug Configurations dialog box, select **Xilinx C/C++ application**and click the **New** button:![](../images/new_icon.png)
+6.  Name the configuration **Zynq\_Linux\_Kernel\_Debug**. ![](../images/sdk_t_tcf_attach_debug_linux_kernel_tcf-2.png)
+
+
+7.  Debugging begins, with the processors in the running state, as shown below. ![](../images/sdk_t_tcf_attach_debug_linux_kernel_tcf-3.png)
+
+
+8.  Click the **Pause** button to suspend the processor:![](../images/TCF_9.png) Debug starts in the Disassembly mode.
+9.   Add vmlinux symbol files to both processor cores. 
+    1.   Right-click on ARM Cortex-A9 MPCore\#0 and select Symbol Files. 
+    2.   Click add and add vmlinux symbol files. 
+    3.   Click OK. 
+    4.   Right click on ARM Cortex-A9 MPCore\#1 and select Symbol Files. 
+    5.   Click add and add vmlinux symbol files. 
+    6.   Click OK. 
+10. You must set up “Source Lookup” if you built the code on a Linux machine and try to run the debugger on Windows. ![](../images/sdk_t_tcf_attach_debug_linux_kernel_tcf-5.png)
+
+
+11. Select the debug configuration **Zynq\_Linux\_Kernel\_Debug,** then right-click it and select **Edit Source Lookup.**
+12. Click **Add.** ![](../images/sdk_t_tcf_attach_debug_linux_kernel_tcf-6.png)
+
+
+13. Select **Path Mapping** from the **Add Source**dialog box. ![](../images/sdk_t_tcf_attach_debug_linux_kernel_tcf-7.png)
+
+
+14. Add the Compilation path and local file system path by clicking **Add.** ![](../images/sdk_t_tcf_attach_debug_linux_kernel_tcf-8.png)
+
+
+15. Successful source lookup takes you to the source code debug. ![](../images/sdk_t_tcf_attach_debug_linux_kernel_tcf-9.png)
+
+
+16. You can add function breakpoints using the **Breakpoints** view toolbar: ![](../images/TCF_20.png)
+
+
+17. Add a breakpoint at the start\_kernel function. ![](../images/sdk_t_tcf_attach_debug_linux_kernel_tcf-11.png)
+
+
+18. Click the reset button. The Zynq®-7000 AP SoC processor boots from the SD card and stops at the beginning of the kernel initialization. **Note:**The Linux kernel is always compiled with full optimizations and in-lining enabled. Therefore: ![](../images/debug_reset.PNG)
+
+
+19. Stepping through code might not work as expected due to the possible reordering of some instructions.
+20. Some variables might be optimized out by the compiler and therefore not be available for the debugger.
+
+**Parent topic:** [System Debugger Supported Design Flows](../SDK_tasks/sdk_t_tcf_supported_design_flows.html)
+
+**Related information**  
+
+
+[Standalone Application Debug Using Xilinx System Debugger](../SDK_tasks/sdk_t_tcf_standalone_app_debug_tcf.html)
+
+[Linux Application Debugging with System Debugger](../SDK_tasks/sdk_t_linux_application_debugging_system_debugger.html)
+
+[Standalone Application Debug using System Debugger on QEMU](../SDK_tasks/sdk_t_qemu_debugging_system_debugger.html)
+

@@ -1,0 +1,41 @@
+# Creating a Board Support Package \(SDK\)
+
+A Board Support Package \(BSP\) is a collection of drivers customized to the provided hardware description. Every application must be associated with a BSP. Multiple BSPs may exist in a workspace and support a single hardware description.
+
+Often BSPs are created when an Application is created. Sometimes, however, a BSP with different settings targeting the same hardware platform may be needed.
+
+To create a new board support package for application development in SDK, do the following:
+
+1.  Click **File \> New \> Board Support Package.**If no hardware platform exists in your workspace, the following message opens. 
+
+    ![](../images/sdk_t_create_bsp_internal-1.png)
+
+2.  Click **Specify** to create a new Hardware Platform Specification. For details about creating a new Hardware Platform Specification , see [Creating a New Hardware Platform Specification](sdk_u_new_hardware_platform_spec.html).
+3.  If there is already a hardware project in your workspace, the New Board Support Project dialog box appears. ![](../images/sdk_t_create_bsp_internal-2.png) 
+4.  Provide a new name for the BSP in the **Project name** field if you wish to override the default value.
+5.  Select the location for the board support project files. To use the default location, as displayed in the **Location** field, leave the **Use default location** check box selected. Otherwise, click to unselect the check box, then type or browse to the directory location.
+6.  From the **Hardware Platform** drop-down choose the appropriate platform for your application or click the **New** button to browse to an existing Hardware Platform.
+7.   Select the target CPU from the drop-downlist. 
+8.  From the **Board Support Package OS** list box, select the type of board support package to create. A description of the platform types displays in the box below the drop-down list.
+9.  Click **Finish.** The wizard creates a new software platform and displays it in the SDK Navigator pane.
+10. Select **Project** \>**Build Automatically** to automatically build the board support package.
+11.  The Board Support Package Settings dialog box opens. Here you can customize the settings for the BSP. For details, see [Using the Board Support Package Settings Page](task_usingtheboardsupportpackagesettingspage.html). 
+12.  Click **OK** to accept the settings, build the BSP, and close the dialog box. 
+
+**Parent topic:** [Board Support Packages \(SDK\)](../SDK_concepts/sdk_c_bsp_internal.html)
+
+**Related information**  
+
+
+[Configuring a Board Support Package \(SDK\)](../SDK_tasks/sdk_t_config_bsp_internal.html)
+
+[Building a Board Support Package for SDK](../SDK_tasks/sdk_t_build_bsp_internal.html)
+
+[Supported Libraries](../SDK_concepts/concept_otherlibraries.html)
+
+[Board Support Packages \(External Tools\)](../SDK_concepts/sdk_c_bsp_external.html)
+
+[Viewing a Board Support Package](../SDK_tasks/sdk_t_view_bsp.html)
+
+[Re-Targeting A BSP for a New Hardware Platform](../SDK_tasks/sdk_t_retarget.html)
+

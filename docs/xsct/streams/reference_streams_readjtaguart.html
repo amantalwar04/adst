@@ -1,0 +1,48 @@
+# readjtaguart
+
+Start/Stop reading from Jtag Uart.
+
+## Syntax
+
+readjtaguart \[options\]
+
+Start/Stop reading from the ARM DCC or MDM Uart Tx interface. Jtag Uart output can be printed on stdout or redirected to a file.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-start|Start reading the Jtag Uart output.|
+|-stop|Stop reading the Jtag Uart output.|
+|-handle <file-handle\>|Specify the file handle to which the data should be redirected. If no file handle is given, data is printed on stdout.|
+
+## Note\(s\)
+
+-   Select a MDM or ARM processor target before runnning this command.
+-   While running a script in non-interactive mode, output from Jtag uart may not be written to the log, until "readjtaguart -stop" is used.
+
+## Returns
+
+Nothing, if successful. Error string, if data cannot be read from the Jtag Uart.
+
+## Example\(s\)
+
+```
+readjtaguart
+```
+
+Start reading from the Jtag Uart and print the output on stdout. set fp \[open test.log w\]; readjtaguart -start -handle $fp Start reading from the Jtag Uart and print the output to test.log.
+
+```
+readjtaguart -stop
+```
+
+Stop reading from the Jtag Uart.
+
+**Parent topic:** [Jtag UART](../../xsct/streams/reference_xsct_streams.html)
+
+**Related information**  
+
+
+[jtagterminal](../../xsct/streams/reference_streams_jtagterminal.html)
+

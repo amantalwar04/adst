@@ -1,0 +1,52 @@
+# SDK Application Projects
+
+Software application projects are your final application containers. The project directory that is created contains \(or links to\) your C/C++ source files, executable output file, and associated utility files, such as the make files used to build the project. Each SDK project produces one executable file called **projectname**.elf. You can configure the following in a Software Application project:
+
+-   Compilation Settings
+-   Build Configurations
+-   Run and debug configurations
+
+For standalone projects, each software application project must link against an SDK board support package project in your workspace. Otherwise, your software image will not link or be functional. Board support packages created for external tools cannot be used.
+
+You can have any number of application projects. This allows you to do all of your software development for a given hardware within the same SDK workspace.
+
+Nested projects are not supported; each project must be organized as a discrete entity. Project dependencies are supported by allowing a project to reference other projects that reside in your workspace.
+
+**Note:** For A9, Linaro is set as the default tool chain. You can change the tool chain preference by selecting **Toolchain Preferences** from the **Preferences** dialog box. Select **Windows** \> **Preferences** from the menu bar to launch the **Preferences** dialog box.
+
+-   **[Creating a Standalone Application Project](../SDK_tasks/sdk_t_create_new_appln.html)**  
+
+-   **[Creating a Linux Application Project](../SDK_tasks/sdk_t_create_new_linux_appln.html)**  
+
+-   **[Creating a User Template Application](../SDK_tasks/task_create_user_template_app.html)**  
+
+-   **[Zynq DRAM Diagnostics Test](../SDK_references/sdk_u_zynq_dram.html)**  
+
+-   **[Using the OpenCV Template Application](../SDK_tasks/sdk_t_opencv_template.html)**  
+
+
+**Parent topic:** [Working with Projects](../SDK_tasks/sdk_o_project_creation.html)
+
+**Related information**  
+
+
+[Creating a Library Project](../SDK_tasks/sdk_t_create_new_libproj.html)
+
+[Using Custom Libraries in Application Projects](../SDK_tasks/Using_custom_libraries.html)
+
+[Creating a Zynq Boot Image for an Application](../SDK_tasks/sdk_t_create_zynq_boot_image.html)
+
+[Auto-Synchronizing Software Projects](../SDK_concepts/concept_autosyncofswprojects.html)
+
+[Re-Targeting a Software Project](../SDK_tasks/sdk_t_retarget_another_project.html)
+
+[Filtering Projects](../SDK_concepts/sdk_c_project_filtering.html)
+
+[Building Projects](../SDK_concepts/sdk_c_build.html)
+
+[Debugging Projects](../SDK_concepts/sdk_c_over_dbg.html)
+
+[Running Projects](../SDK_concepts/sdk_c_over_run.html)
+
+[Sharing and Archiving Software Projects](../SDK_concepts/sdk_o_share.html)
+

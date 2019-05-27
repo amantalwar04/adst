@@ -1,0 +1,21 @@
+# Specifying Non-Intrusive Profiler Configuration
+
+To configure options for the Profiler, do the following:
+
+1.   Launch Xilinx SDK. 
+2.   Create a new standalone application project or select an existing one. 
+3.   Select **Run** \> **Run Configuration****.** 
+4.   In the **Run Configurations** dialog box, expand **Xilinx C/C++ Application \(System Debugger\)**. 
+5.   Create a run configuration. 
+6.   Click the **Application** tab. 
+7.   Click the **Edit** button to view and configure the **Advanced Options**. 
+8.   In the **Profile Options** area, select the **Enable Profiling** check box. 
+9.   Select **Non-Intrusive**. 
+10.  Specify the low address and the high address of the program range to be profiled. Alternatively, select the **Program Start** or the **Program End** check box to auto-calculate the low or high address from the program. 
+11.  Select **Count Instructions** to count the number of instructions executed. Alternatively, select **Count Cycles** to count the number of cycles elapsed. 
+12.  Select **Cumulative Profiling** to profile without clearing the profiling buffers from the last execution. 
+13.  Click **OK** to save the configurations. 
+14.  Click **Run** to profile the selected project. 
+
+**Parent topic:** [Non-Intrusive Profiling for MicroBlaze Processors](../SDK_concepts/non-intrusive-profiling.html)
+

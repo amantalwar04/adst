@@ -1,0 +1,27 @@
+# Importing Third-Party Software Components
+
+Third-party software components and board support packages \(BSPs\) typically need to be installed \(copied\) into a software repository of your choice.
+
+For example, assume that you want to install a custom board support package called my\_sw\_platform\_v1\_00\_a, and that your software repository is located in `/home/sdk/sw_repos/dvi_demo_repository.`
+
+In this case, you create a library directory under your repository directory, such as `/home/sdk/sw_repos/dvi_demo_repository/demo_library.`
+
+You then paste your custom board support package files into `/home/sdk/sw_repos/dvi_demo_repository/demo_library/bsp /my_sw_platform_v1_00_a.` For information on how software repositories must be structured, refer to [Repositories](../SDK_concepts/sdk_c_repos.html).
+
+Finally, you must configure your SDK workspace to recognize the new repository. To do this, add the path to the library `/home/sdk/sw_repos/dvi_demo_repository/demo_library` to the Software Repositories list maintained by SDK for your workspace.
+
+For information about adding repositories to your workspace, refer to Setting up software repositories.
+
+**Parent topic:** [Importing Software Projects](../SDK_tasks/sdk_o_import_project.html)
+
+**Related information**  
+
+
+[Importing an Existing Software Project](../SDK_tasks/sdk_t_import_exist_proj.html)
+
+[Importing Resources from the File System](../SDK_tasks/sdk_t_import_file.html)
+
+[Importing Resources from an Archive File](../SDK_tasks/sdk_t_import_archive.html)
+
+[Importing Projects from Git](../SDK_tasks/sdk_importing_projects_from_git.html)
+

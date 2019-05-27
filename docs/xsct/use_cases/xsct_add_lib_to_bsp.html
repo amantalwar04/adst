@@ -1,0 +1,38 @@
+# Working with Libraries
+
+Below is an example XSCT session that demonstrates creating a normal BSP and add XILFFS & XILRSA libraries to the BSP. Create a FSBL application thereafter.
+
+**Note:** Normal BSP do not contain any libraries.
+
+```
+setws /tmp/wrk/workspace
+createhw –name hw0 –hwspec /tmp/wrk/system.hdf
+createbsp -name bsp0 -proc ps7_cortexa9_0 -hwproject hw0 -os standalone
+setlib -bsp bsp0 -lib xilffs
+setlib -bsp bsp0 -lib xilrsa
+updatemss -mss bsp0/system.mss
+regenbsp -bsp bsp0
+createapp -name fsbl0 -app {Zynq FSBL} -proc ps7_cortexa9_0 -bsp bsp0 -hwproject hw0 -os standalone
+projects –build
+```
+
+Changing the OS version.
+
+```
+setosversion -bsp bsp0 -ver 5.2
+```
+
+Assigning a driver to an IP.
+
+```
+setdriver -bsp bsp0 -ip ps7_uart_1 -driver generic
+```
+
+Removing a library \(removes xilrsa library from BSP\).
+
+```
+removelib -bsp hello_bsp -lib xilrsa
+```
+
+**Parent topic:** [XSCT Use Cases](../../xsct/use_cases/xsct_use_cases.html)
+

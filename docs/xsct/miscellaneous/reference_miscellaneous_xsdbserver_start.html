@@ -1,0 +1,62 @@
+# xsdbserver start
+
+Start XSDB command server.
+
+## Syntax
+
+xsdbserver start \[options\]
+
+Start XSDB command server listener. XSDB command server allows external processes to connect to XSDB to evaluate commands. The XSDB server reads commands from the connected socket one line at the time. After evaluation, a line is sent back starting with 'okay' or 'error' followed by the result or error as a backslash quoted string.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-host <addr\>|Limits the network interface on which to listen for incomming connections.|
+|-port <port\>|Specifies port to listen on. If this option is not specified or if the port is zero then a dynamically allocated port number is used.|
+
+## Returns
+
+Server details are disaplayed on the console if server is started. successfully, or error string, if a server has been already started.
+
+## Example\(s\)
+
+```
+xsdbserver start
+```
+
+Start XSDB server listener using dynamically allocated port.
+
+```
+xsdbserver start -host localhost -port 2000
+```
+
+Start XSDB server listener using port 2000 and only allow incomming connections on this host.
+
+**Parent topic:** [Miscellaneous](../../xsct/miscellaneous/reference_xsct_miscellaneous.html)
+
+**Related information**  
+
+
+[loadhw](../../xsct/miscellaneous/reference_miscellaneous_loadhw.html)
+
+[unloadhw](../../xsct/miscellaneous/reference_miscellaneous_unloadhw.html)
+
+[mdm\_drwr](../../xsct/miscellaneous/reference_miscellaneous_mdm_drwr.html)
+
+[mb\_drwr](../../xsct/miscellaneous/reference_miscellaneous_mb_drwr.html)
+
+[mdm\_drrd](../../xsct/miscellaneous/reference_miscellaneous_mdm_drrd.html)
+
+[mb\_drrd](../../xsct/miscellaneous/reference_miscellaneous_mb_drrd.html)
+
+[configparams](../../xsct/miscellaneous/reference_miscellaneous_configparams.html)
+
+[version](../../xsct/miscellaneous/reference_miscellaneous_version.html)
+
+[xsdbserver stop](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_stop.html)
+
+[xsdbserver disconnect](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_disconnect.html)
+
+[xsdbserver version](../../xsct/miscellaneous/reference_miscellaneous_xsdbserver_version.html)
+

@@ -1,0 +1,46 @@
+# Generating SVF Files
+
+SVF \(Serial Vector Format\) is an industry standard file format that is used to describe JTAG chain operations in a compact, portable fashion. Below is a example SVF script:
+
+```
+# Reset values of respective cores
+set core 0
+set apu_reset_a53 {0x380e 0x340d 0x2c0b 0x1c07}
+# Generate SVF file for linking DAP to the JTAG chain
+# Next 2 steps are required only for Rev2.0 silicon and above.
+svf config -scan-chain {0x14738093 12 0x5ba00477 4
+} -device-index 1 -linkdap -out "dapcon.svf"
+svf generate
+# Configure the SVF generation
+svf config -scan-chain {0x14738093 12 0x5ba00477 4
+} -device-index 1 -cpu-index $core -delay 10 -out "fsbl_hello.svf"
+# Record writing of bootloop and release of A53 core from reset
+svf mwr 0xffff0000 0x14000000
+svf mwr 0xfd1a0104 [lindex $apu_reset_a53 $core]
+# Record stopping the core
+svf stop
+# Record downloading FSBL
+svf dow "fsbl.elf"
+# Record executing FSBL
+svf con
+svf delay 100000
+# Record some delay and then stopping the core
+svf stop
+# Record downloading the application
+svf dow "hello.elf"
+# Record executing application
+svf con
+# Generate SVF
+svf generate
+```
+
+**Note:** SVF files can only be recorded using XSCT. You can use any standard SVF player to play the SVF file.
+
+To play a SVF file in Vivado® Hardware manager, connect to a target and use the following TCL command to play the file on the selected target.
+
+```
+execute_hw_svf <*.svf file>
+```
+
+**Parent topic:** [XSCT Use Cases](../../xsct/use_cases/xsct_use_cases.html)
+

@@ -1,0 +1,48 @@
+# Debugging Dom-U Standalone Application
+
+1.   Create a new standalone hypervisor guest application. 
+    1.   Click **File** \> **New** \> **Application Project**. The New Application Project dialog box appears. 
+
+        **Note:** This is equivalent to clicking on **File \> New \> Project** to open the New Project wizard, selecting **Xilinx \> Application Project**, and clicking **Next.**
+
+        ![](../images/sdk_t_create_new_hypervisor_app.png)
+
+    2.   Type a project name into the **Project Name** field. 
+    3.   Select the location for the project. You can use the default location as displayed in the **Location** field by leaving the **Use default location** check box selected. Otherwise, click the check box and type or browse to the directory location. 
+    4.   The **OS Platform** allows you to select which operating system you will be writing code for. Select **standalone**. 
+
+        **Note:** This selection alters what templates you view in the next screen and what supporting code is provided in your project.
+
+    5.   Select the **Hardware Platform** XML or HDF file, if it was not specified earlier. If you have not build hardware yet, you can select one of the pre-defined platforms from the drop-down. Alternatively, you can drag and drop an existing hardware specification XML/HDF file or search for one by clicking the **New** button and create a new hardware project. After completing the new hardware project creation, you are returned to the **New Application Project** dialog box.
+    6.   From the **Processor** drop-down list, select the processor for which you want to build the application. This is an important step when there are multiple processors in your design. 
+    7.   Select your preferred language: **C**or **C++**. 
+    8.   Select the compiler: **64-bit** or **32-bit**. 
+    9.   From the **Hypervisor Guest** drop-down list, select **Yes** to create an application with a pre-defined linker script suitable to run the Xen. 
+    10.  Specify a Board Support Package. You can create a new customizable BSP, or select an existing BSP. The BSP created by the wizard will have `hypervisor_guest` parameter set to `true`. It will also ensure that the `stdin` and `stdout` are pointing to `psu_uart_1`. 
+    11.  Click **Next** to advance to the **Templates** screen. 
+    12.  SDK provides useful sample applications listed in **Templates** dialog box that you can use to create your project. The **Description** box displays a brief description of the selected sample application. When you use a sample application for your project, SDK creates the required source and header files and linker script. 
+    13.  Select the desired template. If you want to create a blank project, select the**Empty Application.** You can then add C files to the project, after the project is created. 
+    14.  Click **Finish** to create your application project and board support package \(if it does not exist\). 
+
+        **Note:** Xilinx recommends that you use Managed Make flow rather than Standard Make C/C++ unless you are comfortable working with make files.
+
+2.   Build the newly created hypervisor guest standalone application to generate a `.bin` file. This file is needed to work with Xen. 
+3.   Boot Xen and Dom-0. For details on how to boot Xen and Dom-0, refer [UG1144 - PetaLinux Tools Documentation: Reference Guide](https://www.xilinx.com/cgi-bin/docs/rdoc?v=latest;d=ug1144-petalinux-tools-reference-guide.pdf).
+4.   Enable Xen awareness by enabling OS aware debug for Xen symbol file. Symbol files are added to a process context to enable source level debugging. For details on how to enable Xen awareness, refer [Enabling Xen Awareness](sdk_enable_xen_aware_debug.html).
+5.   Copy the application to Dom-0 file system. 
+6.   Create the guest domain `hello` using the Xen configuration file. 
+
+    ```
+        name = "hello"
+        kernel = "/boot/hello.bin"
+        memory = 8
+        vcpus = 1
+        cpus = [1]
+        irqs = [ 54 ]
+        iomem = [ "0xff010,1" ]
+    ```
+
+7.   Suspend the **Dom-U VCPU\#0** core. You can now insert breakpoints, step in, step out, watch variables, stack trace or perform other source level debugging tasks. 
+
+**Parent topic:** [Xen Aware Debugging](../SDK_concepts/concept_xen-aware_debug.html)
+

@@ -1,0 +1,17 @@
+# Switching Between XSCT and Xilinx SDK Development Environment
+
+Below is an example XSCT session that demonstrates creating two applications using XSCT and modifying the BSP settings. After the execution, launch the Xilinx® SDK development environment and select the workspace created using XSCT, to view the updates.
+
+**Note:** The workspace created in XSCT can be used from Xilinx SDK. However, at a time, only one instance of the tool can use the workspace.
+
+```
+setws /tmp/wrk/workspace
+createhw –name hw0 –hwspec /tmp/wrk/system.hdf
+createbsp -name bsp0 -proc ps7_cortexa9_0 -hwproject hw0 -os standalone
+createapp -name hello0 -app {Hello World} -proc ps7_cortexa9_0 -hwproject hw0 -bsp bsp0 -os standalone
+createapp -name fsbl0 -app {Zynq FSBL} -proc ps7_cortexa9_0 -hwproject hw0 -bsp bsp0 -os standalone
+projects –build 
+```
+
+**Parent topic:** [XSCT Use Cases](../../xsct/use_cases/xsct_use_cases.html)
+

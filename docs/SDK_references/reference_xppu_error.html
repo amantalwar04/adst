@@ -1,0 +1,22 @@
+# XPPU configuration requirment for system debugger
+
+## Issue
+
+System debugger throws errors when XPPU is enabled.
+
+## Solution
+
+When XPPU is enabled, debugger access point should have access to the following peripherals for debug to work properly:
+
+-   CRF\_APB
+-   CRL\_APB
+-   CSU
+-   PMU\_GLOBAL
+-   DDRC
+-   RPU
+-   APU
+
+These peripherals are accessed by debugger in the background, to determine system state. System debugger will throw an error if these peripherals are not made accessible to DAP master in the XPPU configuration.
+
+**Parent topic:** [Known Issues](../SDK_references/sdk_knownissues.html)
+

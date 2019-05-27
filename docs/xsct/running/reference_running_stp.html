@@ -1,0 +1,47 @@
+# stp
+
+Step into a line of source code.
+
+## Syntax
+
+stp \[count\]
+
+Resume execution of the active target until control reaches instruction that belongs to different line of source code. If a function is called, stop at first line of the function code. Error is returned if line number information not available. If `<count>` is greater than 1, repeat `<count>` times. Default value of count is 1.
+
+## Returns
+
+Nothing, if the target has single stepped. Error string, if the target is already running or cannot be resumed.
+
+An information message is printed on the console when the target stops at the next address.
+
+**Parent topic:** [Program Execution](../../xsct/running/reference_xsct_running.html)
+
+**Related information**  
+
+
+[state](../../xsct/running/reference_running_state.html)
+
+[stop](../../xsct/running/reference_running_stop.html)
+
+[con](../../xsct/running/reference_running_con.html)
+
+[nxt](../../xsct/running/reference_running_nxt.html)
+
+[stpi](../../xsct/running/reference_running_stpi.html)
+
+[nxti](../../xsct/running/reference_running_nxti.html)
+
+[stpout](../../xsct/running/reference_running_stpout.html)
+
+[dis](../../xsct/running/reference_running_dis.html)
+
+[print](../../xsct/running/reference_running_print.html)
+
+[locals](../../xsct/running/reference_running_locals.html)
+
+[backtrace](../../xsct/running/reference_running_backtrace.html)
+
+[profile](../../xsct/running/reference_running_profile.html)
+
+[mbprofile](../../xsct/running/reference_running_mbprofile.html)
+

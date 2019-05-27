@@ -1,0 +1,26 @@
+# Accessing User Template Applications
+
+You can access the user template applications in the SDK IDE or using the XSCT. To access the user application templates:
+
+1.   Using the SDK IDE: 
+    1.   Launch the SDK IDE. 
+    2.   Select **Xilinx Tools** \> **Repositories** \> **Add**. 
+    3.   Select the repository folder, from the dialog box that appears. 
+    4.   Select **File** \> **New** \> **Application Project**. The **New Project** wizard page appears. 
+    5.   Specify a project name. From the **OS Platform** drop down, select the OS supported by the user template application. 
+    6.   From the **Processor** drop down, select the processor supported by the user template application. 
+    7.   Click **Next**. The **Templates** page appears. This page lists all the available templates including the user template application created by you. 
+    8.   Select the user application template, from the **Available Templates** list and click **Finish** to create an application based on the selected user application template. 
+2.   Using XSCT: 
+    1.   Execute the following commands at the XSCT prompt: 
+
+        ```
+        setws {c:\temp\workspace}
+        repo –set {C:\Users\pvempati\Desktop\repo}
+        createhw –name ZC702 –hwspec {c:\design\system.hdf}
+        createapp -name a -hwproj ZC702 -proc ps7_cortexa9_0 -app hello -os linux
+        ```
+
+
+**Parent topic:** [Creating a User Template Application](../SDK_tasks/task_create_user_template_app.html)
+

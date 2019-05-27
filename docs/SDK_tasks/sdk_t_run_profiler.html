@@ -1,0 +1,32 @@
+# Specifying Profiler Configuration
+
+To configure options for the Profiler, do the following:
+
+1.  In the Project Explorer or C/C++ Projects view, select a project.
+2.   Select **Run** \> **Run Configuration****.** 
+3.   In the **Run Configurations** dialog box, expand **Xilinx C/C++ Application \(System Debugger\)**. 
+4.   Create a run configuration. 
+5.   Click the **Application** tab. 
+6.   Click the **Edit** button to view and configure the **Advanced Options**. 
+7.   In the **Profile Options** area, select the **Enable Profiling** check box. 
+8.   Select the **Intrusive\(gprof\)** option. 
+9.   Specify the sampling frequency and the scratch memory to use for profiling, where: 
+    1.   The sampling frequency is the interrupt interval that the profiling routine uses to periodically check which function is currently being executed. The routine performs the sampling by examining the program counter at each interrupt. 
+    2.   The scratch memory address is the location in DDR3 memory that the BSP profiling services use for data collection. The application program should never touch this space. 
+10. Click **Run** to profile the application
+
+**Parent topic:** [gprof Profiling](../SDK_tasks/task_profilingtheapplication.html)
+
+**Related information**  
+
+
+[Setting Up the Hardware for Profiling](../SDK_concepts/concept_settinguphwforprofiling.html)
+
+[Setting Up the Software for Profiling](../SDK_concepts/concept_settingupswforprofiling.html)
+
+[Setting up the Board Support Package](../SDK_tasks/task_settinguptheboardsupportpackage.html)
+
+[Setting Up the Software Application](../SDK_tasks/task_settingupthesoftwareapplication.html)
+
+[Viewing the Profiling Results](../SDK_concepts/concept_launchingprofilingview.html)
+

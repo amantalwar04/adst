@@ -1,0 +1,34 @@
+# System Performance Modeling Using a User-Defined Flow
+
+SDK provides the capability to monitor a running target regardless of the target operating system.
+
+**Note:** If no ATG is configured in the Hardware, the ATG Configuration window will be empty. Make sure to remove the Breakpoints by selecting **Window** \> **Show View** \> **Breakpoints**.
+
+1.   If your design is defined in Vivado® Design Suite, then it is recommended to create a platform specification based on the design. To do performance analysis based on the specification: 
+    1.   Build and export your bitstream using **File** \> **Export** \> **Export Hardware** in Vivado Design Suite. 
+    2.   Expand **Xilinx** and select **Hardware Platform Specification** and import the generated file <your design\>.hdf into SDK. 
+    3.   Select **Run** \> **Run Configurations**. 
+    4.   Select **Performance Analysis** and click the **New** button to create a performance analysis configuration. 
+    5.   Select **Standalone Application Debug** from the **Debug Type** dropdown list. 
+    6.   Select the imported hardware platform specification from the **Hardware platform** dropdown list. 
+    7.   Select the **Reset entire system** and **Program FPGA** check boxes. 
+    8.   Click on **Run** to launch the **Performance Analysis** perspective. 
+2.   For any reason, if you cannot create a hardware platform specification, or do not have one, you can still do performance analysis in SDK. To do performance analysis in absence of the specification: 
+    1.   Select **Run** \> **Run Configurations**. 
+    2.   Select **Performance Analysis** and click the **New** button to create a performance analysis configuration. 
+    3.   Select **Attach to running target** from the **Debug Type** dropdown list. 
+    4.   Specify the PS clock frequency in the **PS Processor Frequency\(MHz\)** textbox. 
+    5.   If you have an APM in your design, select **Enable APM Counters**. 
+    6.   Click **Edit** to specify the hardware information of the APM, to be used for performance analysis, in the **APM Hardware Information** dialog box. 
+        1.  Click the **New** icon to add a new row.
+        2.  Specify a unnique identifier in the **APM Id** column.
+        3.  Specify the base address of the APM in the **Base Address** column.
+        4.  Specify the frequency of the clock connected to s\_axi\_aclk in the **Frequency\(Hz\)** column.
+        5.  Specify the number of slots in the **Slots Count** column.
+        6.  Click **OK** to save the details and close the **APM Hardware Information** dialog box.
+    7.   Click **Edit** to select the APM ports or slots that should be enabled for performance analysis, in the **Configure APM** dialog box. 
+    8.   Click **OK** to save the details and close the **Configure APM** dialog box. 
+    9.   Click **Run** to open the **Performance Analysis** perspective. 
+
+**Parent topic:** [User Defined Flow](../SDK_concepts/concept_userdefinedflow.html)
+

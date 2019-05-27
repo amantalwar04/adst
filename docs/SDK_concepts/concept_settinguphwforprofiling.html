@@ -1,0 +1,23 @@
+# Setting Up the Hardware for Profiling
+
+To profile a software application, you must ensure that interrupts are raised periodically to sample the program counter \(PC\) value. To do this, you must program a timer and use the timer interrupt handler to collect and store the PC. The profile interrupt handler requires full access to the timer, so a separate timer that is not used by the application itself must be available in the system.
+
+Xilinx® profiling libraries that provide the profile interrupt handler support the axi\_timer core.
+
+When profiling on Zynq®-7000 AP SoC processors, the internal SCU timer should be used.
+
+**Parent topic:** [gprof Profiling](../SDK_tasks/task_profilingtheapplication.html)
+
+**Related information**  
+
+
+[Specifying Profiler Configuration](../SDK_tasks/sdk_t_run_profiler.html)
+
+[Setting Up the Software for Profiling](../SDK_concepts/concept_settingupswforprofiling.html)
+
+[Setting up the Board Support Package](../SDK_tasks/task_settinguptheboardsupportpackage.html)
+
+[Setting Up the Software Application](../SDK_tasks/task_settingupthesoftwareapplication.html)
+
+[Viewing the Profiling Results](../SDK_concepts/concept_launchingprofilingview.html)
+

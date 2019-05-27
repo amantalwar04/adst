@@ -1,0 +1,43 @@
+# Repositories
+
+A software repository is a directory where you can install third-party software components, as well as custom copies of drivers, libraries, and operating systems. When you add a software repository, SDK automatically infers all the components contained with the repository and makes them available for use in its environment.
+
+Your SDK workspace can point to multiple software repositories. The scope of the software repository can be global \(available across all workspaces\) or local \(available only to the current workspace\). Components found in any local software repositories added to an SDK workspace take precedence over identical components \(if any\) found in the global software repositories, which in turn take higher precedence over identical components found in the SDK installation.
+
+An SDK repository requires a specific organization of the components. The diagram below gives an overview of how an SDK repository can be structured. Software components in your repository must belong to one of three different directories:
+
+1.  drivers: Used to hold device drivers.
+2.  sw\_services: Used to hold libraries.
+3.  bsp: Used to hold software platforms and board support packages.
+
+Within each directory, sub-directories containing the individual software components must be present.
+
+![](../images/sdk_c_repos-1.jpg)
+
+The directory structure of an example repository is shown below. Name the top level repository directory to indicate its function in your development flow.
+
+![](../images/sdk_c_repos-2.jpg)
+
+**Parent topic:** [Xilinx Tools Menu](../SDK_references/sdk_u_m_tools.html)
+
+**Related information**  
+
+
+[Generate Linker Script](../SDK_concepts/concept_generatelinkerscript.html)
+
+[Board Support Package Settings](../SDK_concepts/concept_bspsettings.html)
+
+[Program FPGA](../SDK_references/sdk_u_program_fpga.html)
+
+[Dump/Restore Data File](../SDK_concepts/concept_dump_restoredatefile.html)
+
+[Program Flash](../SDK_references/sdk_u_program_flash.html)
+
+[Launch Shell](../SDK_concepts/concept_launchshell.html)
+
+[XSCT Console](../SDK_concepts/concept_xsct_console.html)
+
+[Configure QEMU Settings](../SDK_concepts/concept_configure_qemu_settings.html)
+
+[Create Boot Image](../SDK_concepts/concept_create_zynq_bootimage.html)
+

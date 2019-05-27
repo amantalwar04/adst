@@ -1,0 +1,27 @@
+# Linker Scripts
+
+The final step in creating an executable from object files and libraries is linking. This is performed by a linker that accepts linker command language files called linker scripts. The primary purpose of a linker script is to describe the memory layout of the target machine, and specify where each section of the program should be placed in memory.
+
+SDK provides a linker script generator to simplify the task of creating a linker script. The linker script generator GUI examines the target hardware platform and determines the available memory sections. The only action required by you is to assign the different code and data sections in the ELF file to different memory regions.
+
+**Note:** 
+
+-   For multi-processor systems, each processor runs a different ELF file, and each ELF file requires its own linker script. Ensure that the two ELF files do not overlap in memory.
+-   The default linker always points to the DDR address available in memory. If you are creating an app under a given hardware/BSP project, the memory will overlap for the applications.
+
+-   **[Generating a Linker Script for an Application](../SDK_tasks/task_generatingalinkerscriptforanapplication.html)**  
+
+-   **[Manually Adding the Linker Script](../SDK_tasks/task_manuallyaddingthelinkerscript.html)**  
+
+-   **[Modifying a Linker Script](../SDK_references/sdk_u_linker_script_mod.html)**  
+
+
+**Parent topic:** [Building Projects](../SDK_concepts/sdk_c_build.html)
+
+**Related information**  
+
+
+[Build Configurations](../SDK_concepts/concept_sdk_build_configurations.html)
+
+[Makefiles](../SDK_concepts/concept_sdkhelp_makefiles.html)
+

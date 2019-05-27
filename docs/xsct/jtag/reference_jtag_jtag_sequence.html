@@ -1,0 +1,100 @@
+# jtag sequence
+
+Create JTAG sequence object.
+
+## Syntax
+
+jtag sequence 
+
+Create JTAG sequence object. The jtag sequence command creates a new sequence object. After creation the sequence is empty. The following sequence object commands are available:
+
+sequence state new-state \[count\]
+
+Move JTAG state machine to `<new-state>` and then generate `<count>` JTAG clocks. If `<clock>` is given and `<new-state>` is not a looping state \(RESET, IDLE, IRSHIFT, IRPAUSE, DRSHIFT or DRPAUSE\) then state machine will move towards RESET state.
+
+sequence irshift \[options\] \[bits \[data\]\]
+
+Shift data in IRSHIFT state.
+
+sequence drshift \[options\] bits \[data\]
+
+Shift data in DRSHIFT state. Data is either given as the last argument or if -tdi option is given then data will be all zeros or all ones depending on the argument given to -tdi. The `<bits>` and `<data>` arguments are not used for irshift when the -register option is specified.
+
+|Option                      |Description|
+|----------------------------|-----------|
+|-register <name\>|Select instruction register by name. This option is only supported for irshift.|
+|-tdi <value\>|TDI value to use for all clocks in SHIFT state.|
+|-binary|Format of <data\> is binary, for example data from a file or from binary format.|
+|-integer|Format of <data\> is an integer. The least significant bit of data is shifted first.|
+|-bits|Format of <data\> is a binary text string. The first bit in the string is shifted first.|
+|-hex|Format of <data\> is a hexadecimal text string. The least significant bit of the first byte in the string is shifted first.|
+|-capture|Cature TDO data during shift and return from sequence run command.|
+|-state <new-state\>|State to enter after shift is complete. The default is RESET.|
+
+sequence delay usec
+
+Generate delay between sequence commands. No JTAG clocks will be generated during the delay. The delay is guaranteed to be at least `<usec>` microseconds, but can be longer for cables that do not support delays without generating JTAG clocks.
+
+sequence get\_pin pin
+
+Get value of `<pin>`. Supported pins is cable specific.
+
+sequence set\_pin pin value
+
+Set value of `<pin>` to `<value>`. Supported pins is cable specific.
+
+sequence atomic enable
+
+Set or clear atomic sequences. This is useful to creating sequences that are guaranteed to run with precise timing or fail. Atomic sequences should be as short as possible to minimize the risk of failure.
+
+sequence run \[options\]
+
+Run JTAG operations in sequence for the currently selected jtag target. This command will return the result from shift commands using -capture option and from get\_pin commands.
+
+|Option                      |Description|
+|----------------------------|-----------|
+|-binary|Format return value\(s\) as binary. The first bit shifted out is the least significant bit in the first byte returned.|
+|-integer|Format return values\(s\) as integer. The first bit shifted out is the least significant bit of the integer.|
+|-bits|Format return value\(s\) as binary text string. The first bit shifted out is the first character in the string.|
+|-hex|Format return value\(s\) as hexadecimal text string. The first bit shifted out is the least significant bit of the first byte of the in the string.|
+|-single|Combine all return values as a single piece of data. Without this option the return value is a list with one entry for every shift with -capture and every get\_pin.|
+
+sequence clear
+
+Remove all commands from sequence.
+
+sequence delete
+
+Delete sequence.
+
+## Returns
+
+Jtag sequence object.
+
+## Example\(s\)
+
+set seqname \[jtag sequence\] $seqname state RESET $seqname drshift -capture -tdi 0 256 set result \[$seqname run\] $seqname delete.
+
+**Parent topic:** [JTAG Access](../../xsct/jtag/reference_xsct_jtag.html)
+
+**Related information**  
+
+
+[jtag targets](../../xsct/jtag/reference_jtag_jtag_targets.html)
+
+[jtag device\_properties](../../xsct/jtag/reference_jtag_jtag_device_properties.html)
+
+[jtag lock](../../xsct/jtag/reference_jtag_jtag_lock.html)
+
+[jtag unlock](../../xsct/jtag/reference_jtag_jtag_unlock.html)
+
+[jtag claim](../../xsct/jtag/reference_jtag_jtag_claim.html)
+
+[jtag disclaim](../../xsct/jtag/reference_jtag_jtag_disclaim.html)
+
+[jtag frequency](../../xsct/jtag/reference_jtag_jtag_frequency.html)
+
+[jtag skew](../../xsct/jtag/reference_jtag_jtag_skew.html)
+
+[jtag servers](../../xsct/jtag/reference_jtag_jtag_servers.html)
+

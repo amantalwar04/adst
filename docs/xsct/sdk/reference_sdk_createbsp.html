@@ -1,0 +1,118 @@
+# createbsp
+
+Create a bsp project
+
+## Syntax
+
+createbsp \[OPTIONS\]
+
+Create a bsp project for the specified hardware and processor.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-name <project-name\>|Project name that should be created|
+|-proc <processor-name\>|Processor instance that should be used for creating bsp project.|
+|-hwproject <hw project name\>|Hardware project for which the application or bsp project should be created.|
+|-os <OS name\>|OS type for the application project. Default type is standalone|
+|-mss <MSS File path\>|MSS File path for creating BSP. This option can be used for creating a BSP from user mss file. When mss file is specified, then processor and os options will be ignored and processor/os details are extracted from mss file.|
+|-arch <arch-type\>|Processor architecture, `<arch-type>` can be 32 or 64 bits. This option is used to build the project with 32/64 bit toolchain. This is valid only for A53 processors, defaults to 32-bit for other processors.|
+
+## Returns
+
+Nothing, if the BSP project is created successfully. Error string, if invalid options are used or if the project cannot be created.
+
+## Example\(s\)
+
+```
+createbsp -name bsp1 -hwproject hw1 -proc ps7_cortexa9_0
+```
+
+Create a BSP project with name bsp1 from the hardware project hw1 for processor 'ps7\_cortexa9\_0'
+
+```
+createbsp -name bsp1 -hwproject hw1 -proc ps7_cortexa9_0 -os standalone
+```
+
+Create a BSP project with name bsp1 from the hardware project hw1 for processor 'ps7\_cortexa9\_0' and standalone OS.
+
+```
+createbsp -name bsp1 -hwproject hw1 -mss system.mss
+```
+
+Create a BSP project with name bsp1 with all the details from system.mss
+
+```
+createbsp -name bsp1 -hwproject hw1 -proc psu_cortexa53_0 -arch 32
+```
+
+Create a BSP project with name bsp1 for psu\_cortexa53\_0 using a 32 bit tool chain.
+
+**Parent topic:** [SDK Projects](../../xsct/sdk/reference_xsct_sdk.html)
+
+**Related information**  
+
+
+[openhw](../../xsct/sdk/reference_sdk_openhw.html)
+
+[closehw](../../xsct/sdk/reference_sdk_closehw.html)
+
+[openbsp](../../xsct/sdk/reference_sdk_openbsp.html)
+
+[closebsp](../../xsct/sdk/reference_sdk_closebsp.html)
+
+[updatemss](../../xsct/sdk/reference_sdk_updatemss.html)
+
+[getaddrmap](../../xsct/sdk/reference_sdk_getaddrmap.html)
+
+[getperipherals](../../xsct/sdk/reference_sdk_getperipherals.html)
+
+[repo](../../xsct/sdk/reference_sdk_repo.html)
+
+[configbsp](../../xsct/sdk/reference_sdk_configbsp.html)
+
+[setlib](../../xsct/sdk/reference_sdk_setlib.html)
+
+[removelib](../../xsct/sdk/reference_sdk_removelib.html)
+
+[getlibs](../../xsct/sdk/reference_sdk_getlibs.html)
+
+[setdriver](../../xsct/sdk/reference_sdk_setdriver.html)
+
+[getdrivers](../../xsct/sdk/reference_sdk_getdrivers.html)
+
+[setosversion](../../xsct/sdk/reference_sdk_setosversion.html)
+
+[getos](../../xsct/sdk/reference_sdk_getos.html)
+
+[regenbsp](../../xsct/sdk/reference_sdk_regenbsp.html)
+
+[setws](../../xsct/sdk/reference_sdk_setws.html)
+
+[getws](../../xsct/sdk/reference_sdk_getws.html)
+
+[createhw](../../xsct/sdk/reference_sdk_createhw.html)
+
+[updatehw](../../xsct/sdk/reference_sdk_updatehw.html)
+
+[changebsp](../../xsct/sdk/reference_sdk_changebsp.html)
+
+[createapp](../../xsct/sdk/reference_sdk_createapp.html)
+
+[createlib](../../xsct/sdk/reference_sdk_createlib.html)
+
+[projects](../../xsct/sdk/reference_sdk_projects.html)
+
+[importprojects](../../xsct/sdk/reference_sdk_importprojects.html)
+
+[importsources](../../xsct/sdk/reference_sdk_importsources.html)
+
+[getprojects](../../xsct/sdk/reference_sdk_getprojects.html)
+
+[deleteprojects](../../xsct/sdk/reference_sdk_deleteprojects.html)
+
+[configapp](../../xsct/sdk/reference_sdk_configapp.html)
+
+[toolchain](../../xsct/sdk/reference_sdk_toolchain.html)
+

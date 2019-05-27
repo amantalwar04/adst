@@ -1,0 +1,125 @@
+# print
+
+Get or set the value of an expression.
+
+## Syntax
+
+print \[options\] \[expression\]
+
+Get or set the value of an expression specified by `<expression>`. The `<expression>` can include constants, local/global variables, CPU registers, or any operator, but pre-processor macros defined through \#define are not supported. CPU registers can be specified in the format \{$r1\}, where r1 is the register name. Elements of a complex data types like a structure can be accessed through '.' operator. For example, var1.int\_type refers to int\_type element in var1 struct. Array elements can be accessed through their indices. For example, array1\[0\] refers to the element at index 0 in array1.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-add <expression\>|Add the `<expression>` to auto expression list. The values or definitions of the expressions in auto expression list are displayed when expression name is not specified. Frequently used expressions should be added to the auto expression list.|
+|-defs \[expression\]|Return the expression definitions like address, type, size and RW flags. Not all definitions are available for all the expressions. For example, address is available only for variables and not when the expression includes an operator.|
+|-dict \[expression\]|Return the result in Tcl dict format, with variable names as dict keys and variable values as dict values. For complex data like structures, names are in the form of parent.child.|
+|-remove \[expression\]|Remove the expression from auto expression list. Only expressions previously added to the list through -add option can be removed. When the expression name is not specified, all the expressions in the auto expression list are removed.|
+|-set <expression\>|Set the value of a variable. It is not possible to set the value of an expression which includes constants or operators.|
+
+## Returns
+
+The return value depends on the options used.
+
+`<none>` or -add: Expression value\(s\)
+
+`-defs`: Expression definition\(s\)
+
+`-remove or -set`: Nothing
+
+Error string, if expression value cannot be read or set.
+
+## Example\(s\)
+
+```
+print Int_Glob
+```
+
+Return the value of variable Int\_Glob.
+
+```
+print -a Microseconds
+```
+
+Add the variable Microseconds to auto expression list and return its value.
+
+```
+print -a Int_Glob*2 + 1
+```
+
+Add the expression \(Int\_Glob\*2 + 1\) to auto expression list and return its value.
+
+```
+print tmp_var.var1.int_type
+```
+
+Return the value of int\_type element in var1 struct, where var1 is a member of tmp\_var struct.
+
+```
+print tmp_var.var1.array1[0]
+```
+
+Return the value of the element at index 0 in array array1. array1 is a member of var1 struct, which is in turn a member of tmp\_var struct.
+
+```
+print
+```
+
+Return the values of all the expressions in auto expression list.
+
+```
+print -defs
+```
+
+Return the definitions of all the expressions in auto expression list.
+
+```
+print -set Int_Glob 23
+```
+
+Set the value of the variable Int\_Glob to 23.
+
+```
+print -remove Microseconds
+```
+
+Remove the expression Microseconds from auto expression list.
+
+```
+print {r1}
+```
+
+Return the value of CPU register r1.
+
+**Parent topic:** [Program Execution](../../xsct/running/reference_xsct_running.html)
+
+**Related information**  
+
+
+[state](../../xsct/running/reference_running_state.html)
+
+[stop](../../xsct/running/reference_running_stop.html)
+
+[con](../../xsct/running/reference_running_con.html)
+
+[stp](../../xsct/running/reference_running_stp.html)
+
+[nxt](../../xsct/running/reference_running_nxt.html)
+
+[stpi](../../xsct/running/reference_running_stpi.html)
+
+[nxti](../../xsct/running/reference_running_nxti.html)
+
+[stpout](../../xsct/running/reference_running_stpout.html)
+
+[dis](../../xsct/running/reference_running_dis.html)
+
+[locals](../../xsct/running/reference_running_locals.html)
+
+[backtrace](../../xsct/running/reference_running_backtrace.html)
+
+[profile](../../xsct/running/reference_running_profile.html)
+
+[mbprofile](../../xsct/running/reference_running_mbprofile.html)
+

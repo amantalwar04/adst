@@ -1,0 +1,23 @@
+# Setting up the Board Support Package
+
+1.  Select the Board Support Package \(BSP\) of the software application in the Project Explorer View, then right-click and select **Board Support Package Settings** \(or select **Xilinx Tools \> Board Support Package Settings**\).
+2.  Click on the OS name, such as **standalone**, to configure its parameters.
+3.  Set the **enable\_sw\_intrusive\_profiling** field to **true** and select the timer for use by the profile libraries.
+4.  The BSP should be compiled with the **-pg compiler** option. To perform this step, click on the drivers item and select the cpu driver. Add the **-pg flag** to the **extra\_compiler\_flags** option.
+5.  Click **OK.**
+
+**Parent topic:** [gprof Profiling](../SDK_tasks/task_profilingtheapplication.html)
+
+**Related information**  
+
+
+[Specifying Profiler Configuration](../SDK_tasks/sdk_t_run_profiler.html)
+
+[Setting Up the Hardware for Profiling](../SDK_concepts/concept_settinguphwforprofiling.html)
+
+[Setting Up the Software for Profiling](../SDK_concepts/concept_settingupswforprofiling.html)
+
+[Setting Up the Software Application](../SDK_tasks/task_settingupthesoftwareapplication.html)
+
+[Viewing the Profiling Results](../SDK_concepts/concept_launchingprofilingview.html)
+

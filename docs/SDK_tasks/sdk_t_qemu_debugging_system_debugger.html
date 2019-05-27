@@ -1,0 +1,34 @@
+# Standalone Application Debug using System Debugger on QEMU
+
+1.  Launch SDK.
+2.   Create a standalone application project. Alternatively, you can also select an existing project. 
+3.  Select **Run \> Debug Configurations.**
+4.   Double-click **Xilinx C/C++ application \(System Debugger on QEMU\)** to create a new configuration. 
+
+    **Note:** Only Zynq® UltraScale+™ MPSoC based hardware platforms can be selected for standalone application debugging.
+
+    ![](../images/qemu_debug_configuration.png)
+
+5.   In the **Debug Configuration** dialog box: 
+    1.   If your application is expecting some arguments, specify them in the **Arguments** tab page. 
+    2.   If your application is expecting to set some environment variables, specify them in the **Environments** tab page. 
+6.  Click **Debug**. 
+
+    ![](../images/qemu_debugging.png)
+
+7.   You can also launch the **QEMU Console** by selecting **Window** \> **Show View** \> **Other** menu. The **QEMU Console** can be used to interact with the program running on QEMU. The STDIN can be provided in the input box at the `qemu%` prompt. Output is displayed in the area above the input text. 
+
+    ![](../images/qemu_console.png)
+
+
+**Parent topic:** [System Debugger Supported Design Flows](../SDK_tasks/sdk_t_tcf_supported_design_flows.html)
+
+**Related information**  
+
+
+[Standalone Application Debug Using Xilinx System Debugger](../SDK_tasks/sdk_t_tcf_standalone_app_debug_tcf.html)
+
+[Linux Application Debugging with System Debugger](../SDK_tasks/sdk_t_linux_application_debugging_system_debugger.html)
+
+[Attach and Debug using Xilinx System Debugger](../SDK_tasks/sdk_t_tcf_attach_debug_linux_kernel_tcf.html)
+

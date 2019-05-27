@@ -1,0 +1,59 @@
+# Creating a Boot Image
+
+You can create a boot image for for both Zynq® or Zynq® UltraScale+ ™ MPSoC architectures by performing the following instructions:
+
+1.   Make sure that the FSBL project and any C application project are created in the SDK workspace and built so that corresponding ELF files are available. 
+2.   Select an architecture for which you plan to create a boot image from the **Architecture** drop down menu. Currently, boot image creation for Zynq and Zynq UltraScale+ MPSoC architectures is supported. 
+3.   Select **Create a new BIF file**. 
+4.   Specify the path for creating a BIF file in **Output BIF file path** . The **Output path** is automatically populated with same path as that of BIF file path. 
+5.   Click the **Security** tab if you need secure images. For more details on the settings available on the 
+6.   Select **Use Authentication** to enable authentication and select PPK, SPK PSK and SSK values. 
+7.   Click the **Encryption** tab. 
+8.   Select **Use Encryption** to enable encryption and select the key file and key source. 
+
+    **Note:** SPK signature is not required here, as you will provide the secret key PSK.
+
+    ![](../images/sdk_t_create_zynq_boot_image-7.png)
+
+9.   Add the partitions one at a time, starting from the bootloader. For details on settings available on the **Add partition** page, refer [Adding a Partition](../SDK_references/refernce_bootimagepartitions.html#adding_boot_partition) 
+    1.   Select the Partition type as “bootloader”. 
+    2.   Select the FSBL “zynq\_fsbl.elf” path. 
+    3.   Select the authentication as rsa and encryption as aes. 
+10.  Click **OK**. 
+
+    **Note:** Presign is not required when the secret key SSK is specified.
+
+11.  Click **OK.** 
+
+    Notice that the list in Boot Image Partitions is populated.
+
+    ![](../images/boot_image_partitions_list_populated.png)
+
+12.  Add the second partition. For this example, you will add a C application. 
+    1.   Select the Partition type as **datafile.** 
+    2.   Select the application **zynq\_hello.elf** path. 
+    3.   Select the authentication as **rsa** and encryption as **aes.** 
+13.  Click **OK.** 
+
+    Notice that the list in Boot Image Partitions is updated with the second partition.
+
+    ![](../images/boot_image_partitions2.png)
+
+14.  Click **Create Image** to create the final boot image output.bin. 
+
+-   **[Assumptions](../SDK_tasks/task_assumptions.html)**  
+
+-   **[Limitations](../SDK_tasks/task_limitations.html)**  
+
+
+**Parent topic:** [Creating a Zynq Boot Image for an Application](../SDK_tasks/sdk_t_create_zynq_boot_image.html)
+
+**Related information**  
+
+
+[Opening the Create Boot Image Dialog Box](../SDK_tasks/task_openingthecreatezynqbootimagedialogbox.html)
+
+[Working with Boot Image Format Files](../SDK_tasks/task_workingwithbootimagefiles.html)
+
+[Creating a New Zynq FSBL Application Project](../SDK_tasks/task_creatinganewzynqfsblapplicationproject.html)
+

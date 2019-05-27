@@ -1,0 +1,25 @@
+# rst
+
+Target Reset.
+
+## Syntax
+
+rst \[options\]
+
+Reset the active target.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-processor|Reset the active processor target.|
+|-cores|Reset the active processor group. This reset type is supported only on Zynq. A processor group is defined as a set of processors and on-chip peripherals like OCM.|
+|-system|Reset the active System.|
+|-srst|Generate system reset for active target. With JTAG this is done by generating a pulse on the SRST pin on the JTAG cable assocated with the active target.|
+
+## Returns
+
+Nothing, if reset if successful. Error string, if reset is unsupported.
+
+**Parent topic:** [Target Reset](../../xsct/reset/reference_xsct_reset.html)
+

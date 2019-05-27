@@ -1,0 +1,32 @@
+# Enable Cross-Triggering
+
+You can now create/edit/remove cross-trigger breakpoints and apply the breakpoints on the target using the **Debug Configurations** dialog box. To enable cross-triggering, do the following:
+
+1.   Launch Xilinx SDK. 
+2.   Create a standalone application project. Alternatively, you can also select an existing project. 
+3.   Select **Run \> Debug Configurations.** 
+4.   Double-click **Xilinx C/C++ application \(System Debugger\)** to create a new configuration. 
+5.   On the **Target Setup** tab page, select **Enable Cross-Triggering**. 
+
+    ![](../images/enable_cross_triggering.png)
+
+6.   Click the ![](../images/create_crosstrigger_button.png) button next to the **Enable Cross-Triggering** check box. The **Cross Trigger Breakpoints** dialog box appears. 
+
+    ![](../images/cross-trigger-breakpoints-new.png)
+
+    You can create new breakpoints, edit or remove existing breakpoints using the **Cross Trigger Breakpoints** dialog box. The table below briefly describes the options available on the dialog box.
+
+        |**Create**|Click to create a new cross trigger breakpoint. The **New Cross Trigger Breakpoint** dialog box appears. You need to select a cross trigger signal, which can be a source or destination of a cross-triggering breakpoint. The **OK** button enables only when you select at least one input and one output signal.|
+    |**Edit**|Click to edit an existing breakpoint. The **Edit Cross Trigger Breakppoint** dialog box appears that allows you to edit the selected input and output signals.|
+    |**Remove**|Click to remove the selected breakpoint.|
+
+
+**Parent topic:** [Cross-Triggering](../SDK_concepts/concept_cross_triggering.html)
+
+**Related information**  
+
+
+[Cross-Triggering in Zynq](../SDK_references/reference_cross-trigerring-zynq.html)
+
+[Cross-Triggering in Zynq UltraScale+ MPSoC](../SDK_references/reference_cross-trigerring-zynqmp.html)
+

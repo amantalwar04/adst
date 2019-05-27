@@ -1,0 +1,10 @@
+# Hardware Debug Target
+
+SDK supports debugging of a program on processor running on an FPGA or a Zynq®-7000 AP Soc device. All processor architectures \(MicroBlaze™ and ARM Cortex A9 processors\) are supported. SDK communicates to the processor on the FPGA or Zynq-7000 AP SoC device.
+
+Before you debug the processor on the FPGA, you should configure the FPGA with the appropriate system bitstream. Refer to [Embedded Hardware Components](sdk_c_hwcomponents.html) for more information.
+
+The debug logic for each processor enables program debugging by controlling the processor execution. The debug logic on soft MicroBlaze processor cores is configurable and can be enabled or disabled by the hardware designer when building the embedded hardware.Enabling the debug logic on MicroBlaze processors provides advanced debugging capabilities such as hardware breakpoints, read/write memory watchpoints, safe-mode debugging, and more visibility into MicroBlaze processors. This is the **recommended method** of debugging MicroBlaze software.
+
+**Parent topic:** [Debugging Projects](../SDK_concepts/sdk_c_over_dbg.html)
+

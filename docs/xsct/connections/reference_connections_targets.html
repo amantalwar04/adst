@@ -1,0 +1,83 @@
+# targets
+
+List targets or switch between targets.
+
+## Syntax
+
+targets \[options\]
+
+List available targets.
+
+targets <target id\>
+
+Select `<target id>` as active target.
+
+## Options
+
+|Option|Description|
+|------|-----------|
+|-set|Set current target to entry single entry in list. This is useful in comibination with -filter option. An error will be generate if list is empty or contains more than one entry.|
+|-regexp|Use regexp for filter matching|
+|-nocase|Use case insensitive filter matching|
+|-filter <filter-expression\>|Specify filter expression to control which targets are included in list based on its properties. Filter expressions are similar to Tcl expr syntax. Target properties are references by name, while Tcl variables are accessed using the $ syntax, string must be quoted. Operators ==, !=, `<=, >`=, `<, >`, && and || are supported as well as \(\). There operators behave like Tcl expr operators. String matching operator =~ and !~ match lhs string with rhs pattern using either regexp or string match.|
+|-target-properties|Returns a Tcl list of dict's containing target properties.|
+|-index <index\>|Include targets based on jtag scan chain position. This is identical to specifying -filter \{jtag\_device\_index==`<index>`\}.|
+|-timeout <sec\>|Poll until the targets specified by filter option are found on the scan chain, or until timeout. This option is valid only with filter option. The timeout value is in seconds. Default timeout is 3 seconds|
+
+## Returns
+
+The return value depends on the options used.
+
+`<none>`: Targets list when no options are used.
+
+`-filter`: Filtered targets list.
+
+`-target-properties`: Tcl list consisting of target properties.
+
+An error is returned when target selection fails.
+
+## Example\(s\)
+
+```
+targets
+```
+
+List all targets.
+
+```
+targets -filter {name =~ "ARM*#1"}
+```
+
+List targets with name starting with "ARM" and ending with "\#1".
+
+```
+targets 2
+```
+
+Set target with id 2 as the current target.
+
+```
+targets -set -filter {name =~ "ARM*#1"}
+```
+
+Set current target to target with name starting with "ARM" and ending with "\#1".
+
+```
+targets -set -filter {name =~ "MicroBlaze*"} -index 0
+```
+
+Set current target to target with name starting with "MicroBlaze" and which is on 1st Jtag Device.
+
+**Parent topic:** [Target Connection Management](../../xsct/connections/reference_xsct_connections.html)
+
+**Related information**  
+
+
+[connect](../../xsct/connections/reference_connections_connect.html)
+
+[disconnect](../../xsct/connections/reference_connections_disconnect.html)
+
+[gdbremote connect](../../xsct/connections/reference_connections_gdbremote_connect.html)
+
+[gdbremote disconnect](../../xsct/connections/reference_connections_gdbremote_disconnect.html)
+

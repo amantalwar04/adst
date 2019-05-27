@@ -1,0 +1,44 @@
+# Building Projects
+
+The first step in developing a software application is to create a [Board Support Packages \(SDK\)](sdk_c_bsp_internal.html#) that will be used by the application. Then, you can create an application project.
+
+To build an executable for this application, SDK automatically performs the following actions. Configuration options can also be provided for these steps.
+
+1.  SDK builds the board support package. This is sometimes called a software platform.
+2.  SDK compiles the application software using a platform-specific gcc/g++ compiler.
+3.  The object files from the application and the Board Support Package are linked together to form the final executable. This step is performed by a linker which takes as input a set of object files and a linker script that specifies where object files should be placed in memory.
+
+The following sections provide an overview of concepts involved in building applications.
+
+-   **[Build Configurations](../SDK_concepts/concept_sdk_build_configurations.html)**  
+
+-   **[Makefiles](../SDK_concepts/concept_sdkhelp_makefiles.html)**  
+
+-   **[Linker Scripts](../SDK_concepts/concept_sdk_linkerscripts.html)**  
+
+
+**Parent topic:** [Working with Projects](../SDK_tasks/sdk_o_project_creation.html)
+
+**Related information**  
+
+
+[SDK Application Projects](../SDK_concepts/sdk_c_projects.html)
+
+[Creating a Library Project](../SDK_tasks/sdk_t_create_new_libproj.html)
+
+[Using Custom Libraries in Application Projects](../SDK_tasks/Using_custom_libraries.html)
+
+[Creating a Zynq Boot Image for an Application](../SDK_tasks/sdk_t_create_zynq_boot_image.html)
+
+[Auto-Synchronizing Software Projects](../SDK_concepts/concept_autosyncofswprojects.html)
+
+[Re-Targeting a Software Project](../SDK_tasks/sdk_t_retarget_another_project.html)
+
+[Filtering Projects](../SDK_concepts/sdk_c_project_filtering.html)
+
+[Debugging Projects](../SDK_concepts/sdk_c_over_dbg.html)
+
+[Running Projects](../SDK_concepts/sdk_c_over_run.html)
+
+[Sharing and Archiving Software Projects](../SDK_concepts/sdk_o_share.html)
+
