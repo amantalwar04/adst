@@ -1,8 +1,0 @@
-# Debug after re-launch does not stop on breakpoints.
-
-SDK does a processor reset on every debug session. The interrupt controller is not reset during processor reset. Change the reset type to **System Reset** in the **Target Setup** tab page of the **Debug configuration** dialog box.
-
-This is applicable only if you terminate a debug session while the processor is in interrupt context.
-
-**Parent topic:** [Frequently Asked Questions \(FAQs\)](../SDK_concepts/sdk_debugging_faq.html)
-

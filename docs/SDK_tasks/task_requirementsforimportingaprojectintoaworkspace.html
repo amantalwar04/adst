@@ -1,9 +1,0 @@
-# Requirements for Importing a Project into a Workspace
-
-The software projects in a workspace are associated with a hardware design and targeted to a particular processor and processor sub-system. When you import a software project into a workspace, SDK performs minimal checks to ensure that this software project is usable in the workspace. The following checks are done for different software project types:
-
--   For **Board Support Package** projects, SDK checks to see if the processor name and type used by the software project exist in the current hardware design. It does not check if all the peripherals required by the drivers and libraries in the software platform exist in the processor sub-system. If there is a mismatch, SDK returns errors. Such projects cannot be imported into the workspace; you should delete them from the workspace.
--   For **Software Application** projects, SDK checks to see if the software platform, processor name, and type used by the software application exist in the current workspace and hardware design. Therefore, when you are importing a software application, you must make sure that the software platform used by this application already exists in the workspace. Alternatively, you can import the software platform along with the application.
-
-**Parent topic:** [Importing an Existing Software Project](../SDK_tasks/sdk_t_import_exist_proj.html)
-
